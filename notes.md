@@ -1,0 +1,1 @@
+- Lets go and desigin figma design of what we want to create.
