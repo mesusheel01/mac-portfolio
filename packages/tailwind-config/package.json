@@ -1,7 +1,8 @@
 {
-  "name": "@portfolio/tailwind-config",
+  "name": "tailwind-config",
   "version": "1.0.0",
-  "main": "tailwind.config.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -9,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefix": "^1.0.1",
+    "@tailwindcss/postcss": "^4.1.11",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.11"
   }
