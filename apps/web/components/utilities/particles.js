@@ -35,7 +35,7 @@ const ParticlesComponent = (props) => {
     () => ({
       background: {
         color: {
-          value: "#00000",
+          value: "#000000",
         },
       },
       fpsLimit: 120,
@@ -43,7 +43,7 @@ const ParticlesComponent = (props) => {
         events: {
           onClick: {
             enable: true,
-            mode: ["attract", "slow"],
+            mode: "repulse",
           },
           onHover: {
             enable: true,
@@ -85,7 +85,7 @@ const ParticlesComponent = (props) => {
           density: {
             enable: true,
           },
-          value: 150,
+          value: 180,
         },
         opacity: {
           value: 1.0,
