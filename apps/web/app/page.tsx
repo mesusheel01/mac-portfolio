@@ -1,9 +1,9 @@
-import ParticlesComponent from '../components/particles.js'
+import { MyHome } from "@/components/MyHome"
 
 const Home = () => {
   return (
-    <ParticlesComponent id="particles" />
+    <MyHome />    
   )
 }
 
-export default Home
+export default Home 
