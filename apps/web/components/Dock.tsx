@@ -1,5 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { TiHomeOutline } from 'react-icons/ti';
+import { MdPersonPin } from 'react-icons/md';
+import { GiFilmProjector } from 'react-icons/gi';
+import { AiOutlineContacts } from 'react-icons/ai';
 
 export const Dock = () => {
   return (
@@ -16,15 +20,27 @@ export const Dock = () => {
     >
       <div
         className="
-          h-16 min-w-fit w-11/12 max-w-md rounded-2xl
+          h-16 min-w-fit w-11/14 max-w-sm rounded-2xl
           bg-neutral-900/60 backdrop-blur-md border border-white/20 shadow-lg
           flex items-center justify-center
-          sm:w-96
-          md:w-[32rem]
+          sm:w-8/12
+          md:w-[38rem]
           px-2
+          gap-15
         "
       >
-        
+        <div className='text-neutral-300 text-2xl'>
+          <TiHomeOutline /> 
+        </div>
+        <div className='text-neutral-300 text-2xl'>
+          <MdPersonPin />
+        </div>
+        <div className='text-neutral-300 text-2xl'>
+          <GiFilmProjector />
+        </div>
+        <div className='text-neutral-300 text-2xl'>
+          <AiOutlineContacts />
+        </div>
       </div>
     </motion.div>
   );
