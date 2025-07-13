@@ -38,7 +38,7 @@ export const Hero = () => {
   const { title, tagline } = workProfiles[index];
 
   return (
-    <section className="w-full flex flex-col md:flex-row items-center justify-between py-16 px-4 md:px-16 min-h-[60vh]">
+    <section className="w-full flex flex-col gap-10 md:flex-row items-center justify-between py-10 px-4 md:px-16 min-h-[60vh]">
       {/* Left: About Me */}
       <motion.div 
         initial={{
@@ -71,7 +71,7 @@ export const Hero = () => {
             </AnimatePresence>
           </span>
         </h1>
-        <strong className="text-lg md:text-xl text-pink-400 font-semibold transition-all duration-500">{tagline}</strong>
+        <strong className="text-lg md:text-xl text-purple-700 font-semibold transition-all duration-500">{tagline}</strong>
         <p className="text-lg md:text-xl text-neutral-600 max-w-xl">
           I create amazing tools, web apps, and digital experiences. Passionate about building products that make a difference. Let's build something great together!
         </p>
@@ -90,12 +90,12 @@ export const Hero = () => {
         duration: 0.3,
         ease:'easeIn'
       }}
-      className="flex-1 flex items-center m-20 translate-y-40 justify-center">
+      className="flex-1 flex items-center translate-y-20 justify-center">
         {/* Replace src with your image later */}
         <img
           src="/image.png"
           alt="About me"
-          className="h-[400px] w-auto object-fill rounded-2xl shadow-lg border-1"
+          className="h-[400px] w-auto object-fill rounded-2xl shadow-lg border-2 border-gray-300"
         />
       </motion.div>
     </section>

@@ -27,27 +27,37 @@ export const Menubar = () => {
     return `${day} ${dateNum} ${month} ${displayHours}:${minutes.toString().padStart(2, '0')} ${ampm}`
   }
 
-  return (
-    <div className='fixed h-6 w-full backdrop:blur-md bg-neutral-900/70'>
-        <div className='flex justify-between' >
-        {/* left section of the menubar */}
-          <div>
-            </div>  
+  return ( 
+      <div className='fixed h-6 w-full backdrop:blur-md bg-neutral-900/70'>
+        <div className='flex justify-between'>
+          {/* left section of the menubar */}
+          <div className='flex mx-4'>
+            <div className='text-neutral-200'>
+              {"< "}sushe.<span className='text-purple-700'>el</span>{" />"}
+            </div>
+          </div>
           {/* right section of the menubar */}
-          <div className='flex pr-5'> 
-            <Image src="/apple-icons/search.png" alt='Search icon' width={40} height={40}/>
-            <Image src="/apple-icons/search.png" alt='Search icon' width={40} height={40}/>
-            <Image src="/apple-icons/search.png" alt='Search icon' width={40} height={40}/>
-            <Image src="/apple-icons/search.png" alt='Search icon' width={40} height={40}/>
-            <Image src="/apple-icons/search.png" alt='Search icon' width={40} height={40}/>
+          <div className='menu-right mt-1 mx-3'>
+            <span className="menu-icon">
+              <Image src="/apple-icons/battery.png" alt='battery' fill style={{objectFit: "contain"}} />
+            </span>
+            <span className="menu-icon">
+              <Image src="/apple-icons/menu.png" alt='menu' fill style={{objectFit: "contain", }} />
+            </span>
+            <span className="menu-icon">
+              <Image src="/apple-icons/search.png" alt='Search icon' fill style={{objectFit: "contain"}} />
+            </span>
+            <span className="menu-icon">
+              <Image src="/apple-icons/wifi.png" alt='wifi icon' fill style={{objectFit: "contain"}} />
+            </span>
             {/* date time section */}
-            <div className='flex items-center pl-4'>
-              <span className='text-white text-xs font-medium'>
+            <div className='flex items-center mb-1'>
+              <span className='text-white text-[15px] font-medium'>
                 {formatTime(currentTime)}
               </span>
             </div>
           </div>
         </div>
-    </div>
-  )
+      </div>
+    )
 }

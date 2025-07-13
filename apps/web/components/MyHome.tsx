@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
 import ParticlesComponent from './utilities/particles.js'
-import { Menubar } from './Menubar.tsx'
-import { Hero } from './Hero.tsx'
-import { Dock } from './Dock.tsx'
+import { Menubar } from './Menubar'
+import { Hero } from './Hero'
+import { Dock } from './Dock'
 import {motion} from 'motion/react'
 
 
