@@ -6,11 +6,34 @@ import { GiFilmProjector } from 'react-icons/gi';
 import { AiOutlineContacts } from 'react-icons/ai';
 
 export const Dock = () => {
+  const containerVariants = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut" as const,
+        staggerChildren: 0.1,
+        delayChildren: 0.4
+      }
+    }
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { duration: .9, ease: "easeInOut" as const }
+    }
+  };
+
   return (
     <motion.div
       initial={{ y: 25, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, ease: 'linear' }}
+      transition={{ duration: 0.5, ease: 'linear' }}
       className="
         fixed bottom-4 left-0 w-full flex justify-center text-center
         sm:w-full sm:flex-row
@@ -18,30 +41,46 @@ export const Dock = () => {
         z-50
       "
     >
-      <div
-        className="
-          h-16 min-w-fit w-11/14 max-w-sm rounded-2xl
-          bg-neutral-900/60 backdrop-blur-md border border-white/20 shadow-lg
-          flex items-center justify-center
-          sm:w-8/12
-          md:w-[38rem]
-          px-2
-          gap-15
-        "
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+                  className="
+            h-16 min-w-fit rounded-2xl
+            bg-neutral-900/60 backdrop-blur-md border border-white/20 shadow-lg
+            flex items-center justify-center
+            w-auto px-4 py-2
+            gap-6
+            transition-all delay-75 duration-300
+          "
       >
-        <div className='text-neutral-300 text-2xl'>
+        <motion.div 
+          variants={iconVariants}
+          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
+        >
           <TiHomeOutline /> 
-        </div>
-        <div className='text-neutral-300 text-2xl'>
+        </motion.div>
+        <motion.div 
+          variants={iconVariants}
+         
+          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
+        >
+
           <MdPersonPin />
-        </div>
-        <div className='text-neutral-300 text-2xl'>
+        </motion.div>
+        <motion.div 
+          variants={iconVariants}
+          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
+          >
           <GiFilmProjector />
-        </div>
-        <div className='text-neutral-300 text-2xl'>
+        </motion.div>
+        <motion.div 
+          variants={iconVariants}
+          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
+          >
           <AiOutlineContacts />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 };

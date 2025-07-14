@@ -50,7 +50,8 @@ export const Hero = () => {
           opacity:1
         }}
         transition={{
-          duration: 0.3,
+          delay:.3,
+          duration: 0.4,
           ease:'easeIn'
         }}
       className="flex-1 flex flex-col gap-5 m-20 items-start justify-center mb-8 md:mb-0 md:mr-8">
@@ -87,7 +88,8 @@ export const Hero = () => {
         opacity:1
       }}
       transition={{
-        duration: 0.3,
+        delay:.3,
+        duration: 0.4,
         ease:'easeIn'
       }}
       className="flex-1 flex items-center translate-y-20 justify-center">
