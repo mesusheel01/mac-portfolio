@@ -33,7 +33,7 @@ export const Menubar = () => {
           {/* left section of the menubar */}
           <div className='flex mx-4'>
             <div className='text-neutral-200'>
-              {"< "}<span className='text-neutral-300'>sushe</span>.<span className='text-purple-700'>el</span>{" />"}
+              {"< "}<span className='text-neutral-300'>sushe</span>.<span className='text-purple-500'>el</span>{" />"}
             </div>
           </div>
           {/* right section of the menubar */}

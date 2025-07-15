@@ -1,8 +1,12 @@
+'use client'
 import { MyHome } from "@/components/MyHome"
+import { RecoilRoot } from "recoil"
 
 const Home = () => {
   return (
-    <MyHome />    
+    <RecoilRoot>
+      <MyHome />  
+    </RecoilRoot>  
   )
 }
 

@@ -1,11 +1,27 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { TiHomeOutline } from 'react-icons/ti';
 import { MdPersonPin } from 'react-icons/md';
 import { GiFilmProjector } from 'react-icons/gi';
 import { AiOutlineContacts } from 'react-icons/ai';
+import { MotionIcon } from '@/subComponents/MotionDockIcon';
+import { useRouter } from 'next/navigation';
+import { useRecoilState} from 'recoil';
+import {dockSelectionAtom} from '../store/atoms/dockStateStore'
 
 export const Dock = () => {
+  const [activeSelection, setActiveSection] = useRecoilState(dockSelectionAtom);
+  const router = useRouter();
+  const handleHomeClick = () => {
+    console.log()
+    router.refresh(); // or router.push('/') if you want to go to the home page
+  };
+
+  const handleAboutClick = () => setActiveSection('about');
+  const handleProjectsClick = () => setActiveSection('projects');
+  const handleContactClick = () => setActiveSection('contact');
+
   const containerVariants = {
     hidden: { scale: 0.8, opacity: 0 },
     visible: {
@@ -28,6 +44,7 @@ export const Dock = () => {
       transition: { duration: .9, ease: "easeInOut" as const }
     }
   };
+
 
   return (
     <motion.div
@@ -54,33 +71,14 @@ export const Dock = () => {
             transition-all delay-75 duration-300
           "
       >
-        <motion.div 
-          variants={iconVariants}
-          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
-        >
-          <TiHomeOutline /> 
-        </motion.div>
-        <motion.div 
-          variants={iconVariants}
-         
-          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
-        >
-
-          <MdPersonPin />
-        </motion.div>
-        <motion.div 
-          variants={iconVariants}
-          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
-          >
-          <GiFilmProjector />
-        </motion.div>
-        <motion.div 
-          variants={iconVariants}
-          className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
-          >
-          <AiOutlineContacts />
-        </motion.div>
+       <MotionIcon onClick={handleHomeClick} icon={<TiHomeOutline />} iconVariants={iconVariants} />
+       <MotionIcon onClick={handleAboutClick} icon={<MdPersonPin />} iconVariants={iconVariants} />
+       <MotionIcon onClick={handleProjectsClick} icon={<GiFilmProjector />} iconVariants={iconVariants} />
+       <MotionIcon onClick={handleContactClick} icon={<AiOutlineContacts />} iconVariants={iconVariants} />
+      
       </motion.div>
     </motion.div>
   );
 };
+
+
