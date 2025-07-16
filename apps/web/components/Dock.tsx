@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+
 import { motion } from 'motion/react';
 import { TiHomeOutline } from 'react-icons/ti';
 import { MdPersonPin } from 'react-icons/md';
@@ -7,20 +7,19 @@ import { GiFilmProjector } from 'react-icons/gi';
 import { AiOutlineContacts } from 'react-icons/ai';
 import { MotionIcon } from '@/subComponents/MotionDockIcon';
 import { useRouter } from 'next/navigation';
-import { useRecoilState} from 'recoil';
-import {dockSelectionAtom} from '../store/atoms/dockStateStore'
+import { useDockStore } from '@/store/useDockStore';
 
 export const Dock = () => {
-  const [activeSelection, setActiveSection] = useRecoilState(dockSelectionAtom);
+  const {activeSelection, setActiveSelection} = useDockStore()
   const router = useRouter();
   const handleHomeClick = () => {
     console.log()
     router.refresh(); // or router.push('/') if you want to go to the home page
   };
 
-  const handleAboutClick = () => setActiveSection('about');
-  const handleProjectsClick = () => setActiveSection('projects');
-  const handleContactClick = () => setActiveSection('contact');
+  const handleAboutClick = () => setActiveSelection('about');
+  const handleProjectsClick = () => setActiveSelection('projects');
+  const handleContactClick = () => setActiveSelection('contact');
 
   const containerVariants = {
     hidden: { scale: 0.8, opacity: 0 },
