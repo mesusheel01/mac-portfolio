@@ -4,13 +4,30 @@ import { useEffect, useMemo, useState } from "react";
 // import { loadAll } from "@/tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
 // import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+import { useTheme } from "next-themes";
+import { resolve } from "path";
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
 
 
 const ParticlesComponent = (props) => {
-
+  
+  const { setTheme, resolvedTheme } = useTheme()
   const [init, setInit] = useState(false);
+ 
+  // Declare bg and fg at the top
+  let bg = "#ffffff";
+  let fg = "#000000";
+
+  if (resolvedTheme === "dark") {
+    bg = "#000000";
+    fg = "#ffffff";
+  } else if (resolvedTheme === "light") {
+    bg = "#ffffff";
+    fg = "#000000";
+  }
+  
+  
   // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -29,13 +46,13 @@ const ParticlesComponent = (props) => {
   const particlesLoaded = (container) => {
     console.log(container);
   };
-
-
+  //setting background and particle color using system preference.
+  
   const options = useMemo(
     () => ({
       background: {
         color: {
-          value: "#000000",
+          value: `${bg}`,
         },
       },
       fpsLimit: 120,
@@ -62,10 +79,10 @@ const ParticlesComponent = (props) => {
       },
       particles: {
         color: {
-          value: "#FFFFFF",
+          value: `${fg}`,
         },
         links: {
-          color: "#FFFFFF",
+          color: `${fg}`,
           distance: 150,
           enable: true,
           opacity: 0.3,
@@ -99,7 +116,7 @@ const ParticlesComponent = (props) => {
       },
       detectRetina: true,
     }),
-    [],
+    [resolvedTheme, bg, fg],
   );
 
 

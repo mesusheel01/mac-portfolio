@@ -55,9 +55,9 @@ export const Hero = () => {
           ease:'easeIn'
         }}
       className="flex-1 flex flex-col gap-5 m-20 items-start justify-center mb-8 md:mb-0 md:mr-8">
-        <h1 className="text-4xl md:text-5xl font-bold mr-4 text-neutral-400">
+        <h1 className="text-4xl md:text-5xl font-bold mr-4 text-neutral-900 dark:text-neutral-100">
           Hi, I'm Susheel Rai and I am a{" "}
-          <span className="text-neutral-700">
+          <span className="text-purple-700 dark:text-purple-300">
             <AnimatePresence mode="wait">
               <motion.span
                 key={title}
@@ -72,8 +72,8 @@ export const Hero = () => {
             </AnimatePresence>
           </span>
         </h1>
-        <strong className="text-lg md:text-xl text-purple-700 font-semibold transition-all duration-500">{tagline}</strong>
-        <p className="text-lg md:text-xl text-neutral-600 max-w-xl">
+        <strong className="text-lg md:text-xl text-purple-700 dark:text-purple-300 font-semibold transition-all duration-500">{tagline}</strong>
+        <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 max-w-xl">
           I create amazing tools, web apps, and digital experiences. Passionate about building products that make a difference. Let's build something great together!
         </p>
       </motion.div>

@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
+import ThemeSwitch from './ThemeSwitch'
 
 export const Menubar = () => {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -30,15 +31,16 @@ export const Menubar = () => {
 
   return ( 
       <div className='fixed h-6 w-full backdrop:blur-md bg-neutral-900/70'>
-        <div className='flex justify-between'>
+        <div className='flex mb-1 justify-between'>
           {/* left section of the menubar */}
           <div className='flex mx-4'>
             <div className='text-neutral-200'>
-              {"< "}<span className='text-neutral-300'>sushe</span>.<span className='text-purple-500'>el</span>{" />"}
+              {"< "}<span className='text-neutral800 dark:text-neutral-300'>sushe</span>.<span className='text-purple-700'>el</span>{" />"}
             </div>
           </div>
           {/* right section of the menubar */}
-          <div className='menu-right mt-1 mx-3'>
+          <div className='menu-right flex gap-20 mx-3'>
+            <ThemeSwitch />
             <span className="menu-icon">
               <Image src="/apple-icons/battery.png" alt='battery' fill style={{objectFit: "contain"}} />
             </span>
