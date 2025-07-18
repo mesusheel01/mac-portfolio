@@ -73,7 +73,7 @@ export const Hero = () => {
           </span>
         </h1>
         <strong className="text-lg md:text-xl text-purple-700 dark:text-purple-300 font-semibold transition-all duration-500">{tagline}</strong>
-        <p className="text-lg md:text-xl text-neutral-700 dark:text-neutral-300 max-w-xl">
+        <p className="text-lg md:text-xl text-[--secondary] dark:text-neutral-300 max-w-xl">
           I create amazing tools, web apps, and digital experiences. Passionate about building products that make a difference. Let's build something great together!
         </p>
       </motion.div>

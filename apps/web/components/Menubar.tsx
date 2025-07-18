@@ -39,7 +39,7 @@ export const Menubar = () => {
             </div>
           </div>
           {/* right section of the menubar */}
-          <div className='menu-right flex gap-20 mx-3'>
+          <div className='menu-right transition-all duration-300 flex gap-20 mx-3'>
             <ThemeSwitch />
             <span className="menu-icon">
               <Image src="/apple-icons/battery.png" alt='battery' fill style={{objectFit: "contain"}} />

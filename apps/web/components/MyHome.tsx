@@ -8,7 +8,7 @@ import { Dock } from './Dock'
 
 export const MyHome = () => {
   return (
-    <div className='relative min-h-screen overflow-hidden'>
+    <div className='transtion-all duration-300 relative min-h-screen overflow-hidden'>
         {/* background as TsParticles */}
         <div className='fixed top-0 blur-[2px] left-0 w-full h-full z-[-1]'>
             <ParticlesComponent />
