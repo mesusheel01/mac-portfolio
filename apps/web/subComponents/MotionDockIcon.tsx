@@ -11,7 +11,7 @@ export const MotionIcon = (props: {
       <motion.div 
       onClick={onClick}
       variants={iconVariants}
-      className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-colors duration-300 cursor-pointer'
+      className='text-neutral-300 py-2 px-4 rounded-xl border text-2xl border-transparent hover:border-purple-900 transition-all duration-300 cursor-pointer'
       >
      {icon} 
     </motion.div>

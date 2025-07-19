@@ -4,9 +4,13 @@ import ParticlesComponent from './utilities/particles.js'
 import { Menubar } from './Menubar'
 import { Hero } from './Hero'
 import { Dock } from './Dock'
+import { ProjectStage } from './ProjectStage'
+import { useStageStore } from '@/store/useStageStore'
 
 
 export const MyHome = () => {
+  const {stage} = useStageStore()
+
   return (
     <div className='transtion-all duration-300 relative min-h-screen overflow-hidden'>
         {/* background as TsParticles */}
@@ -16,7 +20,7 @@ export const MyHome = () => {
         {/* Main window over here */}
         <div>
           <Menubar />
-          <Hero />
+          {stage ? <ProjectStage />: <Hero />}
           <Dock />
         </div>
     </div>

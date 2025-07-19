@@ -116,7 +116,7 @@ const ParticlesComponent = (props) => {
       },
       detectRetina: true,
     }),
-    [resolvedTheme, bg, fg],
+    [resolvedTheme],
   );
 
 

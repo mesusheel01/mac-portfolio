@@ -8,9 +8,12 @@ import { AiOutlineContacts } from 'react-icons/ai';
 import { MotionIcon } from '@/subComponents/MotionDockIcon';
 import { useRouter } from 'next/navigation';
 import { useDockStore } from '@/store/useDockStore';
+import { useStageStore } from '@/store/useStageStore';
+
 
 export const Dock = () => {
-  const {activeSelection, setActiveSelection} = useDockStore()
+  const {setActiveSelection} = useDockStore()
+  const {stage, toggleStage} = useStageStore()
   const router = useRouter();
   const handleHomeClick = () => {
     console.log()
@@ -70,9 +73,15 @@ export const Dock = () => {
             transition-all delay-75 duration-300
           "
       >
-       <MotionIcon onClick={handleHomeClick} icon={<TiHomeOutline />} iconVariants={iconVariants} />
+       <MotionIcon onClick={()=>{
+        if(stage) toggleStage()
+        handleHomeClick}
+        } icon={<TiHomeOutline />} iconVariants={iconVariants} />
        <MotionIcon onClick={handleAboutClick} icon={<MdPersonPin />} iconVariants={iconVariants} />
-       <MotionIcon onClick={handleProjectsClick} icon={<GiFilmProjector />} iconVariants={iconVariants} />
+       <MotionIcon onClick={()=>{
+        handleProjectsClick()
+        toggleStage()
+        }} icon={<GiFilmProjector />} iconVariants={iconVariants} />
        <MotionIcon onClick={handleContactClick} icon={<AiOutlineContacts />} iconVariants={iconVariants} />
       
       </motion.div>
