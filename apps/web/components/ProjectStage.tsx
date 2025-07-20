@@ -1,7 +1,7 @@
 import { useStageStore } from '@/store/useStageStore'
 import React from 'react'
-import { Card } from './stage-components/Card'
 import {motion} from 'motion/react'
+import { SidebarStage } from './stage-components/SidebarStage'
 
 
 export const ProjectStage = () => {
@@ -14,22 +14,15 @@ export const ProjectStage = () => {
         opacity:0,
       }}
       animate={{
-        x:10,
+        x:20,
         opacity:1
       }}
       transition={{
         duration: 0.3,
         ease:'linear'
       }}
-    className='min-h-screen flex flex-col justify-center'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+    className='min-h-screen backdrop-blur flex flex-col justify-center'>
+        <SidebarStage /> 
       </motion.div>}
       
   </div>

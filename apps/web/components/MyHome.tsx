@@ -17,7 +17,7 @@ export const MyHome = () => {
         <div className='fixed top-0 blur-[2px] left-0 w-full h-full z-[-1]'>
             <ParticlesComponent />
         </div>
-        {/* Main window over here */}
+        {/* Main window over hsjere */}
         <div>
           <Menubar />
           {stage ? <ProjectStage />: <Hero />}
