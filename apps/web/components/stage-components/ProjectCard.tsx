@@ -33,13 +33,13 @@ export const ProjectCard = ({src}: {src: string}) => {
             <iframe
               src={src}
               style={{
-                width: 750, // 5x the container width
-                height: 500, // 5x the container height
+                width: 750, 
+                height: 500,
                 transform: "scale(0.2)",
                 transformOrigin: "top left",
                 border: "none",
                 borderRadius: 10,
-                pointerEvents: "none" // Optional: disables interaction
+                pointerEvents: "none" 
               }}
             />
           </div>
