@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import {motion} from 'motion/react'
 
@@ -5,7 +6,7 @@ import {motion} from 'motion/react'
 export const ProjectCard = ({src}: {src: string}) => {
   return (
     <div className='rounded-xl'>
-      <motion.div
+      <motion.div suppressHydrationWarning // this will disable the flicker that comes before rendering the loading of the project
       initial={{
         rotateX:20,
         rotateY:15,
@@ -28,7 +29,20 @@ export const ProjectCard = ({src}: {src: string}) => {
         ease:"easeInOut"
       }}
       className='[prespective::1000px] [transform-style:preserve-3d] w-[150px] h-[100px] overflow-hidden'>
-          <iframe src={src} height="110" width="130" style={{border:"none", borderRadius: "10px"}} className='object-contain'/>
+          <div style={{ width: 150, height: 100, overflow: "hidden", position: "relative" }}>
+            <iframe
+              src={src}
+              style={{
+                width: 750, // 5x the container width
+                height: 500, // 5x the container height
+                transform: "scale(0.2)",
+                transformOrigin: "top left",
+                border: "none",
+                borderRadius: 10,
+                pointerEvents: "none" // Optional: disables interaction
+              }}
+            />
+          </div>
       </motion.div>
       </div>
   )
