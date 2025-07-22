@@ -27,8 +27,8 @@ export const ProjectCard = ({src}: {src: string}) => {
         duration:0.3,
         ease:"easeInOut"
       }}
-      className='[prespective::1000px] [transform-style:preserve-3d] w-[150px] h-[100px]'>
-          <iframe src={src} height="110" width="130" style={{border:"none", borderRadius: "10px"}}/>
+      className='[prespective::1000px] [transform-style:preserve-3d] w-[150px] h-[100px] overflow-hidden'>
+          <iframe src={src} height="110" width="130" style={{border:"none", borderRadius: "10px"}} className='object-contain'/>
       </motion.div>
       </div>
   )
