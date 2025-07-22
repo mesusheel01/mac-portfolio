@@ -30,7 +30,7 @@ export const Menubar = () => {
   }
 
   return ( 
-      <div className='fixed h-6 w-full backdrop:blur-md bg-neutral-900/70'>
+      <div className='fixed h-6 z-50 w-full backdrop:blur-md bg-neutral-900/70'>
         <div className='flex mb-1 justify-between'>
           {/* left section of the menubar */}
           <div className='flex mx-4'>

@@ -4,7 +4,7 @@ import ParticlesComponent from './utilities/particles.js'
 import { Menubar } from './Menubar'
 import { Hero } from './Hero'
 import { Dock } from './Dock'
-import { ProjectStage } from './ProjectStage'
+import { MyProjects } from './MyProjects'
 import { useStageStore } from '@/store/useStageStore'
 
 
@@ -20,7 +20,7 @@ export const MyHome = () => {
         {/* Main window over hsjere */}
         <div>
           <Menubar />
-          {stage ? <ProjectStage />: <Hero />}
+          {stage ? <MyProjects />: <Hero />}
           <Dock />
         </div>
     </div>
