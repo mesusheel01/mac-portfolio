@@ -4,10 +4,10 @@ import { ProjectCard } from './ProjectCard'
 export const SidebarStage = () => {
   return (
     <div className='flex flex-col gap-5'>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+        <ProjectCard src="https://bolt-list.vercel.app"/>
+        <ProjectCard src="https://bolt-list.vercel.app"/>
+        <ProjectCard src="https://bolt-list.vercel.app"/>
+        <ProjectCard src="https://bolt-list.vercel.app"/>
     </div>
   )
 }

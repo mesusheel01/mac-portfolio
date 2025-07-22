@@ -2,7 +2,7 @@ import React from 'react'
 import {motion} from 'motion/react'
 
 
-export const ProjectCard = () => {
+export const ProjectCard = ({src}: {src: string}) => {
   return (
     <div className='rounded-xl'>
       <motion.div
@@ -28,7 +28,7 @@ export const ProjectCard = () => {
         ease:"easeInOut"
       }}
       className='[prespective::1000px] [transform-style:preserve-3d] w-[150px] h-[100px]'>
-          <iframe src='https://https://cognito-client-lilac.vercel.app/' height="110" width="130" style={{border:"none", borderRadius: "10px"}}/>
+          <iframe src={src} height="110" width="130" style={{border:"none", borderRadius: "10px"}}/>
       </motion.div>
       </div>
   )
