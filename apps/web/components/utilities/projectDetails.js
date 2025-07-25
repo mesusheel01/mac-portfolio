@@ -1,19 +1,30 @@
 export const project = [
     {
-        key: 1,
-        isOpen: true
+        id: 1,
+        src: "/projectIcons/cognito.png",
+        alt: "cognito",
+        name: "Cognito",
+        url: "https://cognito-client-lilac.vercel.app/"
     },
     {
-        key: 2,
-        isOpen: false
-
+        id: 2,
+        src: "/projectIcons/bolt-list.png",
+        alt: "bolt-list",
+        name: "Bolt-list",
+        url: "https://bolt-list.vercel.app/"
     },
     {
-        key: 3,
-        isOpen: false
+        id: 3,
+        src: "/projectIcons/gosipy.png",
+        alt: "gosipy",
+        name: "Gosipy",
+        url: "https://gosipy.vercel.app/"
     },
     {
-        key: 4,
-        isOpen: false
+        id: 4,
+        src: "/projectIcons/learn-verse.png",
+        alt: "learnverse",
+        name: "Learnverse",
+        url: "https://learn-verse-chi.vercel.app/"
     },
 ]

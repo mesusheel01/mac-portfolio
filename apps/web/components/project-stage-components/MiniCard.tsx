@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { motion } from 'motion/react' 
 import Image from 'next/image'
+import { project } from '../utilities/projectDetails'
 
-export const MiniCard = ({ src, alt, name, id }: { src: string; alt: string, name:string, id: number }) => {
-
-
-  const handleClick =(k:number)=>{
-    console.log(k)
-  }
-  return (
+export const MiniCard = ({ src, alt, name, id, onClick }:{
+  src: string,
+  alt: string,
+  name: string,
+  id: number,
+  onClick: () => void
+}) => (
+  <div onClick={onClick}>
     <div className="[perspective::1000px] [transform-style:preserve-3d] flex flex-col ">
       <motion.div
         suppressHydrationWarning
@@ -21,7 +23,7 @@ export const MiniCard = ({ src, alt, name, id }: { src: string; alt: string, nam
         }}
         whileHover={{
           scale: 1.1,
-          translateZ:100
+          translateZ: 100
         }}
         whileTap={{
           y: -8,
@@ -32,7 +34,7 @@ export const MiniCard = ({ src, alt, name, id }: { src: string; alt: string, nam
         }}
         className="w-[150px] h-[100px] border border-neutral-700 overflow-hidden rounded-lg "
       >
-        <div key={id} onClick={()=>handleClick(id)} className="w-full relative h-full rounded-lg overflow-hidden">
+        <div onClick={onClick} className="w-full relative h-full rounded-lg overflow-hidden">
           <Image
             src={src}
             alt={alt}
@@ -42,8 +44,8 @@ export const MiniCard = ({ src, alt, name, id }: { src: string; alt: string, nam
           />
         </div>
       </motion.div>
-        <motion.div
-         initial={{
+      <motion.div
+        initial={{
           rotateX: 20,
           rotateY: 15,
           translateZ: 100,
@@ -52,7 +54,7 @@ export const MiniCard = ({ src, alt, name, id }: { src: string; alt: string, nam
         }}
         whileHover={{
           scale: 1.1,
-          translateZ:100
+          translateZ: 100
         }}
         whileTap={{
           y: -8,
@@ -61,10 +63,9 @@ export const MiniCard = ({ src, alt, name, id }: { src: string; alt: string, nam
           duration: 0.3,
           ease: 'easeInOut',
         }}
-        className="bg-neutral-800
-         px-2 max-w-fit rounded-xl">
-          <span className="text-neutral-300 text-[12px]">{name}</span>
-        </motion.div>
+        className="bg-neutral-800 px-2 max-w-fit rounded-xl">
+        <span className="text-neutral-300 text-[12px]">{name}</span>
+      </motion.div>
     </div>
-  )
-}
+  </div>
+)
