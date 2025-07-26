@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+:root {
+    --font-inter: 'Inter', sans-serif;
+    --font-roboto-mono: 'Roboto Mono', monospace;
+    --font-rubik-iso: 'Rubik Iso', cursive;
+    --font-sono: 'Sono', monospace;
+    --font-share-tech-mono: "Share Tech Mono", monospace;
+  }
+
+  .font-share-mono{
+    font-family: var(--font-share-tech-mono)
+  }
+  .font-roboto-mono {
+    font-family: var(--font-roboto-mono);
+  }
+
+  .font-rubik-iso {
+    font-family: var(--font-rubik-iso);
+  }
+  .font-sono{
+    font-family: var(--font-sono);
+  }

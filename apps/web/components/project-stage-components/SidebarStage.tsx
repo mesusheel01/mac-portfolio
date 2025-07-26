@@ -56,8 +56,8 @@ useEffect(()=>{
     key={active.id}
     initial={{ x: 100, opacity: 0, scale: 0.95 }}
     animate={{ x: 0, opacity: 1, scale: 1 }}
-    exit={{ x: -100, scale: 0.95 }}
-    transition={{ duration: 0.4, ease: "easeInOut" }}
+    exit={{ x: -800, scale: 0 }}
+    transition={{ duration: 0.5, ease: "easeInOut" }}
       className='order-1 lg:order-2 w-full lg:w-auto'>
         <ItsMaxCard project={active} />
       </motion.div>

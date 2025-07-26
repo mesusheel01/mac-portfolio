@@ -20,7 +20,10 @@ export const Dock = () => {
     router.refresh(); // or router.push('/') if you want to go to the home page
   };
 
-  const handleAboutClick = () => setActiveSelection('about');
+  const handleAboutClick = () => {
+    setActiveSelection('about')
+    
+  };
   const handleProjectsClick = () => setActiveSelection('projects');
   const handleContactClick = () => setActiveSelection('contact');
 
@@ -75,8 +78,8 @@ export const Dock = () => {
       >
        <MotionIcon onClick={()=>{
         if(stage) toggleStage()
-        handleHomeClick}
-        } icon={<TiHomeOutline />} iconVariants={iconVariants} />
+        handleHomeClick
+      }} icon={<TiHomeOutline />} iconVariants={iconVariants} />
        <MotionIcon onClick={handleAboutClick} icon={<MdPersonPin />} iconVariants={iconVariants} />
        <MotionIcon onClick={()=>{
         handleProjectsClick()
