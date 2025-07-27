@@ -1,18 +1,33 @@
+'use client'
 import React from 'react'
 import { Blogs } from './Blogs'
 import { Social } from './Social'
 import { Techstack } from './Techstack'
 import { Aboutme } from './Aboutme'
 import { Work } from './Work'
+import {motion } from 'motion/react' 
 
 export const Home = () => {
   return (
-    <div className='bg-neutral-900 w-[800px] min-h-screen'>
+    <motion.div
+    initial={{
+      y: 20,
+      opacity : 0,
+    }}
+    animate={{
+      y: 0,
+      opacity : 1,
+    }}
+    transition={{
+      duration: 0.3,
+      ease :"easeIn"
+    }}
+   >
       <Aboutme />
       <Work />
       <Techstack />
       <Blogs />
       <Social />
-    </div>
+    </motion.div>
   )
 }

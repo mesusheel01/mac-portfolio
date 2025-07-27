@@ -1,10 +1,11 @@
+'use client'
 import React from 'react'
 
 export const Work = () => {
   return (
     <div>
         <div className='m-2 flex flex-col gap-2'>
-            <h1 className='text-purple-400 text-xl font-share-mono '>Work till now...</h1>
+            <h1 className='text-purple-400 text-xl font-share-mono'>Work till now...</h1>
             <ul className='text-neutral-400 font-sono list-disc pl-5'>
                 <li><a target='_blank' href='https://gosipy.vercel.app'>https://susheel-projects.el</a></li>
                 <li><a target='_blank' href='https://github.com/mesusheel01'>https://susheel-github.com</a></li>
