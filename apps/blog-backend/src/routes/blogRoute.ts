@@ -1,17 +1,17 @@
 import { Router } from "express";
 import { susheelAuthenticator } from "../customMiddleware.ts";
-import {prismaClient} from '@repo/db'
+import { prismaClient } from "@repo/db";
 
-const blog = Router()
+const blogRouter = Router()
 const ps = prismaClient;
 
-blog.use(susheelAuthenticator)
+blogRouter.use(susheelAuthenticator)
 
-blog.get('/', async (req,res)=>{
+blogRouter.get('/', async (req,res)=>{
     try {
        const blogs = await ps.blog.findMany();
        if(!blogs){
-        res.status(404).json({
+        res.status(200).json({
             msg: "No blogs found!"
         })
         return ;
@@ -27,7 +27,7 @@ blog.get('/', async (req,res)=>{
 })
 
 //post
-blog.post("/id", async(req, res)=>{
+blogRouter.post("/", async(req, res)=>{
     const {title ,description} = req.body
     try {
         const create  = await ps.blog.create({
@@ -37,7 +37,7 @@ blog.post("/id", async(req, res)=>{
             }
         })
         if(!create){
-            res.status(404).json({
+            res.status(200).json({
                 msg: "No blogs found!"
             })
             return;
@@ -53,12 +53,39 @@ blog.post("/id", async(req, res)=>{
 })
 
 // put
-blog.put('/id', async(req,res)=>{
-    const {id, title, description} = req.body
+blogRouter.put('/:id', async(req,res)=>{
+    const id = Number(req.params.id)
+    const { title, description} = req.body
     try {
-        const existingBlog = await ps.blog.find(id);
-        
+        const updatedPost = await ps.blog.update({
+            where: {id: id},
+            data: {title, description}
+        })      
+        res.status(200).json({
+            msg: "updated blog ", updatedPost
+        }) 
     } catch (error) {
-        
+       res.status(500).json({
+        msg: "Internal server Error!"
+       }) 
     }
 })
+// delete
+blogRouter.delete('/:id', async(req, res)=>{
+    const id = Number(req.params.id);
+
+    try {
+        const deleteReq = await ps.blog.delete({
+            where:{id}
+        }) 
+        res.status(200).json({
+            msg: "The post has been successfully deleted"
+        })
+    } catch (error) {
+        res.status(500).json({
+            msg: 'Internal Server Error!'
+        })
+    }
+})
+
+export default blogRouter
