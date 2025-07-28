@@ -22,10 +22,11 @@ export const Dock = () => {
 
   const handleAboutClick = () => {
     setActiveSelection('about')
-    
+    router.push('http://localhost:3001')  
   };
   const handleProjectsClick = () => setActiveSelection('projects');
   const handleContactClick = () => setActiveSelection('contact');
+
 
   const containerVariants = {
     hidden: { scale: 0.8, opacity: 0 },
