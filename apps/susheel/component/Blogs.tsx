@@ -1,5 +1,7 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
 import { BlogCard } from './BlogCard';
+import axios from 'axios';
 
 type Blog = {
   id: number;
@@ -8,37 +10,42 @@ type Blog = {
   imageUrl: string;
 };
 
-export const Blogs = async () => {
-  let blogs: Blog[] = [];
-  let errorMsg = '';
+export const Blogs = () => {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [errorMsg, setErrorMsg] = useState('');
 
-  try {
-    const response = await fetch('http://localhost:5001/blog?token=susheel', {
-      cache: 'no-store', // to always fetch fresh data (optional)
-    });
-
-    if (!response.ok) {
-      errorMsg = 'Failed to fetch blogs.';
-    } else {
-      const data = await response.json();
-      if (data.length > 0) {
-        blogs = data;
+  const fetchBlogs = async () => {
+    try {
+      const response = await axios.get('http://localhost:5001/blog?token=susheel');
+      const res = response.data;
+      console.log(res)
+      if (res && res.allBlogs.length) {
+        setBlogs(res.allBlogs);
       } else {
-        errorMsg = 'No blogs found.';
+        setErrorMsg('No blogs found!');
       }
+    } catch (error) {
+      setErrorMsg('Server Error!');
     }
-  } catch (error) {
-    errorMsg = 'Server Error!';
-  }
+  };
+
+  useEffect(() => {
+    fetchBlogs();
+  }, []);
 
   return (
     <div>
-      <h1>Blogs...</h1>
-      {errorMsg ? (
+      <h1 className='text-purple-400 font-share-mono text-xl'>Blogs...</h1>
+      <div className='mt-4'>
+        {errorMsg ? (
         <p>{errorMsg}</p>
       ) : (
-        blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+        blogs.map((blog) =>
+        <div className='flex flex-col m-2 text-lg text-neutral-400 items-center justify-center'> 
+          <BlogCard key={blog.id} blog={blog} />
+        </div>)
       )}
+      </div>
     </div>
   );
 };
