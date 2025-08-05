@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
+import ElfCanvas from './ElfHuMain'
 
 export const Aboutme = () => {
   const [startSpin, setStartSpin] = useState(true)
@@ -14,22 +15,16 @@ export const Aboutme = () => {
   return (
     <div className='flex flex-col justify-around'>
       <div className='flex justify-center items-center'>
-                  <motion.div
-            className='m-2 flex justify-center items-center h-[200px] w-[200px] rounded-full overflow-hidden border-1 border-purple-900'
-            animate={{ rotateY: startSpin ? 720 : 360 }}
-            transition={
-              startSpin
-                ? { duration: 1, ease: 'easeIn' }
-                : { duration: 20, repeat: Infinity, ease: 'linear' }
-            }
-          >
-          <Image
-            src='/sus.jpeg'
-            alt='me'
-            height={200}
-            width={200}
-            className='object-cover w-full h-full'
-          />
+        <motion.div
+          className='m-2 flex justify-center items-center h-[200px] w-[200px] rounded-full overflow-hidden border-1 border-purple-900'
+          animate={{ rotateY: startSpin ? 720 : 360 }}
+          transition={
+            startSpin
+              ? { duration: 1, ease: 'easeIn' }
+              : { duration: 20, repeat: Infinity, ease: 'linear' }
+          }
+        >
+          <ElfCanvas />
         </motion.div>
       </div>
 

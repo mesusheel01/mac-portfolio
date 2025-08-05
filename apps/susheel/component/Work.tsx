@@ -11,8 +11,8 @@ export const Work = () => {
                 <li><a target='_blank' href='https://github.com/mesusheel01'>https://susheel-github.com</a></li>
             </ul>
             <picture>
-                <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/mesusheel01/mesusheel01/output/github-snake-dark.svg" />
-                <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/mesusheel01/mesusheel01/output/github-snake.svg" />
+                <source media="(prefers-color-scheme: dark)" srcSet="https://raw.githubusercontent.com/mesusheel01/mesusheel01/output/github-snake-dark.svg" />
+                <source media="(prefers-color-scheme: light)" srcSet="https://raw.githubusercontent.com/mesusheel01/mesusheel01/output/github-snake.svg" />
                 <img alt="github-snake" src="https://raw.githubusercontent.com/tobiasmeyhoefer/tobiasmeyhoefer/output/github-snake.svg" />
             </picture>
         </div>

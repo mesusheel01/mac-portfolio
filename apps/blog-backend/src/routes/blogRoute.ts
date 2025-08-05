@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { susheelAuthenticator } from "../customMiddleware.ts";
+import { susheelAuthenticator } from "../customMiddleware.ts"; 
 import { prismaClient } from "@repo/db";
 
 const blogRouter = Router()
@@ -10,7 +10,7 @@ blogRouter.use(susheelAuthenticator)
 blogRouter.get('/', async (req,res)=>{
     try {
        const blogs = await ps.blog.findMany();
-       if(!blogs){
+       if(blogs.length === 0){
         res.status(200).json({
             msg: "No blogs found!"
         })
@@ -20,6 +20,7 @@ blogRouter.get('/', async (req,res)=>{
         allBlogs: blogs
        })
     } catch (e) {
+        console.error(e); // log the actual error
         res.status(500).json({
             msg: "Internal server error!"
         })
