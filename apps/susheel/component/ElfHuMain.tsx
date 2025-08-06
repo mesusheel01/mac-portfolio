@@ -1,12 +1,14 @@
 'use client'
-import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { Suspense, useEffect, useState, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 
-const Computers = () => {
-  const computer = useGLTF("./elf/scene.gltf");
+const ElfModel = () => {
+  const elf = useGLTF("./elf/scene.gltf");
   const [isMobile, setIsMobile] = useState(false);
+  const [rotationSpeed, setRotationSpeed] = useState(2); // radians per second
+  const modelRef = useRef<THREE.Object3D>(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -19,6 +21,19 @@ const Computers = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  useEffect(() => {
+    // After 1 second, slow down the rotation
+    const timer = setTimeout(() => setRotationSpeed(0.2), 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useFrame((_, delta) => {
+    if (modelRef.current) {
+      // Animate y rotation for spinning, not x
+      modelRef.current.rotation.y += rotationSpeed * delta;
+    }
+  });
 
   return (
     <mesh>
@@ -33,10 +48,11 @@ const Computers = () => {
       />
       <pointLight intensity={1} />
       <primitive
-        object={computer.scene}
+        ref={modelRef}
+        object={elf.scene}
         scale={isMobile ? 4.7 : 7.75}
         position={isMobile ? [0, -1.25, -2.2] : [2, -2.56, -1.5]}
-        rotation={[-0.01, 1, -0.1]}
+        rotation={[0, 4, 0]} // standing upright, adjust y as needed
       />
     </mesh>
   );
@@ -50,7 +66,7 @@ const ElfCanvas = () => {
         frameloop='demand'
         shadows
         dpr={[1, 2]}
-        camera={{ position: [20, 3, 4], fov: 25 }}
+        camera={{ position: [1,7, 4], fov: 45 }}
         gl={{ preserveDrawingBuffer: true }}
       >
         <Suspense fallback={null}>
@@ -59,13 +75,11 @@ const ElfCanvas = () => {
             maxPolarAngle={Math.PI / 2}
             minPolarAngle={Math.PI / 2}
           />
-          <Computers />
+          <ElfModel />
         </Suspense>
 
         <Preload all />
       </Canvas>
-      {/* Optionally, show Loader outside Canvas if needed */}
-      {/* <Loader /> */}
     </>
   );
 };

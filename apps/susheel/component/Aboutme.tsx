@@ -14,20 +14,13 @@ export const Aboutme = () => {
 
   return (
     <div className='flex flex-col justify-around'>
-      <div className='flex justify-center items-center'>
-        <motion.div
-          className='m-2 flex justify-center items-center h-[200px] w-[200px] rounded-full overflow-hidden border-1 border-purple-900'
-          animate={{ rotateY: startSpin ? 720 : 360 }}
-          transition={
-            startSpin
-              ? { duration: 1, ease: 'easeIn' }
-              : { duration: 20, repeat: Infinity, ease: 'linear' }
-          }
-        >
-          <ElfCanvas />
-        </motion.div>
-      </div>
-
+      <motion.div
+           layout
+            className='w-full  h-[200px]  lg:h-[300px] relative'
+           transition={{type:'spring', stiffness:500, damping:30}}
+           >
+      <ElfCanvas />
+      </motion.div>
       <div className='m-2 flex flex-col gap-2'>
         <h2 className='text-purple-400 font-share-mono text-2xl'>
           sush.eel
