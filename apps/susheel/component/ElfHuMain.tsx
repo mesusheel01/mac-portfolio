@@ -45,14 +45,15 @@ const ElfModel = () => {
         intensity={1}
         castShadow
         shadow-mapSize={1024}
+        shadow-color="white"
       />
       <pointLight intensity={1} />
       <primitive
         ref={modelRef}
         object={elf.scene}
-        scale={isMobile ? 4.7 : 7.75}
-        position={isMobile ? [0, -1.25, -2.2] : [2, -2.56, -1.5]}
-        rotation={[0, 4, 0]} // standing upright, adjust y as needed
+        scale={isMobile ? 4.7 : 6}
+        position={[0, 0, 0]}
+        rotation={[0, Math.PI, 0]} // rotate 180deg on y so model faces front
       />
     </mesh>
   );

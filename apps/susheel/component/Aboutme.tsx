@@ -17,7 +17,6 @@ export const Aboutme = () => {
       <motion.div
            layout
             className='w-full  h-[200px]  lg:h-[300px] relative'
-           transition={{type:'spring', stiffness:500, damping:30}}
            >
       <ElfCanvas />
       </motion.div>
