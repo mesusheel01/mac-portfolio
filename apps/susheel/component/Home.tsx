@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { Blogs } from './Blogs'
-import { Social } from './Social'
 import { Techstack } from './Techstack'
 import { Aboutme } from './Aboutme'
 import { Work } from './Work'
@@ -27,7 +26,6 @@ export const Home = () => {
       <Work />
       <Techstack />
       <Blogs />
-      <Social />
     </motion.div>
   )
 }
