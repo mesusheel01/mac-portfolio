@@ -54,6 +54,9 @@ importers:
       '@react-three/fiber':
         specifier: ^9.3.0
         version: 9.3.0(@types/react@19.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.179.1)
+      '@types/three':
+        specifier: ^0.179.0
+        version: 0.179.0
       axios:
         specifier: ^1.11.0
         version: 1.11.0

@@ -1,5 +1,5 @@
 'use client'
-import THREE from 'three';
+import * as THREE from 'three';
 import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
