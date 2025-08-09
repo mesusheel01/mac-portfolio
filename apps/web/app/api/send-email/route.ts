@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `,
-      reply_to: email,
+      replyTo: email,
     });
 
     if (!data || (typeof data === 'object' && 'error' in data && data.error)) {
