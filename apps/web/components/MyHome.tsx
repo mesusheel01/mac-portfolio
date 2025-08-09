@@ -6,10 +6,13 @@ import { Hero } from './Hero'
 import { Dock } from './Dock'
 import { MyProjects } from './MyProjects'
 import { useStageStore } from '@/store/useStageStore'
+import { useContact } from '@/store/useContactStore'
+import { Social } from './Social'
 
 
 export const MyHome = () => {
   const {stage} = useStageStore()
+  const {contact} = useContact()
 
   return (
     <div className='transtion-all duration-300 relative min-h-screen overflow-hidden'>
@@ -20,7 +23,7 @@ export const MyHome = () => {
         {/* Main window over hsjere */}
         <div>
           <Menubar />
-          {stage ? <MyProjects />: <Hero />}
+          {stage ? <MyProjects />: contact ? <Social  /> : <Hero />}
           <Dock />
         </div>
     </div>
