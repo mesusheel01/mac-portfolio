@@ -1,6 +1,6 @@
-'use client'
-import { motion } from 'motion/react';
 import React, { useState } from 'react'
+import { Resend } from 'resend'
+import { motion } from 'motion/react'
 
 export const Social = () => {
   
@@ -15,11 +15,27 @@ export const Social = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // TODO: Add your submission logic here (e.g., send to API or email)
-    setSubmitted(true);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form),
+    });
+
+    if (res.ok) {
+      setSubmitted(true);
+      setForm({ name: '', email: '', message: '' });
+    } else {
+      const err = await res.json();
+      alert(`Failed to send: ${err.error}`);
+    }
+  } catch (error) {
+    alert('Something went wrong.');
+  }
+};
 
   return (
     <motion.div
