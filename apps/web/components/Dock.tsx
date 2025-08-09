@@ -15,7 +15,7 @@ export const Dock = () => {
   const router = useRouter();
 
   const handleHomeClick = () => setActiveSection('hero');
-  const handleAboutClick = () => router.push('http://localhost:3001');
+  const handleAboutClick = () => router.push('https://whoissusheel.vercel.app/');
   const handleProjectsClick = () => setActiveSection('projects');
   const handleContactClick = () => setActiveSection('contact');
 
