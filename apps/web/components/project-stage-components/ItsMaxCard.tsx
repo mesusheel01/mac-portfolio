@@ -20,6 +20,6 @@ export const ItsMaxCard = ({project}:{project:Project}) => {
         style={{ minWidth: '100%', minHeight: '100%', border: 'none', objectFit: 'cover' }}
         allowFullScreen
       />
-    </div>
+     </div>
   )
 }

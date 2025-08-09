@@ -1,4 +1,5 @@
 'use client'
+import { motion } from 'motion/react';
 import React, { useState } from 'react'
 
 export const Social = () => {
@@ -21,7 +22,11 @@ export const Social = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] bg-gradient-to-br from-purple-900 via-black to-purple-800 rounded-xl p-8 shadow-2xl">
+    <motion.div
+    initial={{ y:25, opacity: 0, }}
+    animate={{ y: 0, opacity: 1, }}
+    transition={{ duration: 0.5, ease: 'easeInOut' }}
+    className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-900/50 via-black/50 to-purple-800/50 rounded-xl p-8 shadow-2xl">
       <h2 className="text-3xl font-bold text-purple-300 mb-4">Contact Me</h2>
       <p className="text-neutral-400 mb-8 text-center max-w-md">
         Have a question, project, or just want to say hi? Fill out the form below and I'll get back to you!
@@ -70,12 +75,12 @@ export const Social = () => {
           </div>
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white font-bold rounded-lg shadow-md hover:from-purple-700 hover:to-purple-500 transition-all"
+            className="w-full py-2  px-4 bg-gradient-to-r from-purple-600 to-purple-400 text-white font-bold rounded-lg shadow-md hover:from-purple-700 hover:to-purple-500 transition-colors duration-300"
           >
             Send Message
           </button>
         </form>
       )}
-    </div>
+    </motion.div>
   )
 }

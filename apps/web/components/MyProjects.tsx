@@ -2,13 +2,14 @@ import { useStageStore } from '@/store/useStageStore'
 import React from 'react'
 import {motion} from 'motion/react'
 import { SidebarStage } from './project-stage-components/SidebarStage'
+import { useSectionStore } from '@/store/useSectionStore'
 
 
 export const MyProjects = () => {
-  const {stage} = useStageStore()
+  const {activeSection } = useSectionStore();
   return (
    <div>
-    {stage && <motion.div
+    {activeSection === 'projects' && <motion.div
       initial={{
         x:-40,
         opacity:0,

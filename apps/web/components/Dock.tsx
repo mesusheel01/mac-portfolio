@@ -7,31 +7,17 @@ import { GiFilmProjector } from 'react-icons/gi';
 import { AiOutlineContacts } from 'react-icons/ai';
 import { MotionIcon } from '@/subComponents/MotionDockIcon';
 import { useRouter } from 'next/navigation';
-import { useDockStore } from '@/store/useDockStore';
-import { useStageStore } from '@/store/useStageStore';
-import { useContact } from '@/store/useContactStore';
+import { useSectionStore } from '@/store/useSectionStore';
 
 
 export const Dock = () => {
-  const {setActiveSelection} = useDockStore()
-  const {stage, toggleStage} = useStageStore()
-  const {contact, toggleContact} = useContact()
+  const { setActiveSection } = useSectionStore();
   const router = useRouter();
-  const handleHomeClick = () => {
-    console.log()
-    router.refresh(); // or router.push('/') if you want to go to the home page
-  };
 
-  const handleAboutClick = () => {
-    setActiveSelection('about')
-    router.push('http://localhost:3001')  
-  };
-  const handleProjectsClick = () => setActiveSelection('projects');
-  const handleContactClick = () => {
-    setActiveSelection('contact');
-    if(stage)toggleStage();
-    toggleContact();
-  }
+  const handleHomeClick = () => setActiveSection('hero');
+  const handleAboutClick = () => router.push('http://localhost:3001');
+  const handleProjectsClick = () => setActiveSection('projects');
+  const handleContactClick = () => setActiveSection('contact');
 
 
   const containerVariants = {
@@ -83,21 +69,13 @@ export const Dock = () => {
             transition-all delay-75 duration-300
           "
       >
-       <MotionIcon onClick={()=>{
-        if(stage) toggleStage()
-        if(contact) toggleContact()
-            handleHomeClick() // <-- add parentheses to call the function
-      }} icon={<TiHomeOutline />} iconVariants={iconVariants} />
+       <MotionIcon onClick={handleHomeClick} icon={<TiHomeOutline />} iconVariants={iconVariants} />
        <MotionIcon onClick={handleAboutClick} icon={<MdPersonPin />} iconVariants={iconVariants} />
-       <MotionIcon onClick={()=>{
-        handleProjectsClick()
-        toggleStage()
-        }} icon={<GiFilmProjector />} iconVariants={iconVariants} />
+       <MotionIcon onClick={handleProjectsClick} icon={<GiFilmProjector />} iconVariants={iconVariants} />
        <MotionIcon onClick={handleContactClick} icon={<AiOutlineContacts />} iconVariants={iconVariants} />
       
       </motion.div>
     </motion.div>
   );
 };
-
 

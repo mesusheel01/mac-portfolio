@@ -1,17 +1,17 @@
 export const project = [
     {
         id: 1,
-        src: "/projectIcons/cognito.png",
-        alt: "cognito",
-        name: "Cognito",
-        url: "https://cognito-client-lilac.vercel.app/"
-    },
-    {
-        id: 2,
         src: "/projectIcons/bolt-list.png",
         alt: "bolt-list",
         name: "Bolt-list",
         url: "https://bolt-list.vercel.app/"
+    },
+    {
+        id: 2,
+        src: "/projectIcons/cognito.png",
+        alt: "cognito",
+        name: "Cognito",
+        url: "https://cognito-client-lilac.vercel.app/"
     },
     {
         id: 3,

@@ -8,12 +8,11 @@ import { MyProjects } from './MyProjects'
 import { useStageStore } from '@/store/useStageStore'
 import { useContact } from '@/store/useContactStore'
 import { Social } from './Social'
+import { useSectionStore } from '@/store/useSectionStore'
 
 
 export const MyHome = () => {
-  const {stage} = useStageStore()
-  const {contact} = useContact()
-
+  const {activeSection} = useSectionStore();
   return (
     <div className='transtion-all duration-300 relative min-h-screen overflow-hidden'>
         {/* background as TsParticles */}
@@ -23,7 +22,9 @@ export const MyHome = () => {
         {/* Main window over hsjere */}
         <div>
           <Menubar />
-          {stage ? <MyProjects />: contact ? <Social  /> : <Hero />}
+           {activeSection === 'hero'&& <Hero />} 
+           {activeSection === 'projects' && <MyProjects />} 
+           {activeSection === 'contact' && <Social />}
           <Dock />
         </div>
     </div>
