@@ -11,7 +11,7 @@ export const project = [
         src: "/projectIcons/cognito.png",
         alt: "cognito",
         name: "Cognito",
-        url: "https://cognito-client-lilac.vercel.app/"
+        url: "https://cognitos.vercel.app/"
     },
     {
         id: 3,
@@ -25,6 +25,6 @@ export const project = [
         src: "/projectIcons/learn-verse.png",
         alt: "learnverse",
         name: "Learnverse",
-        url: "https://learn-verse-chi.vercel.app/"
+        url: "https://learnversechi.vercel.app/"
     },
 ]
