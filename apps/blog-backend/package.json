@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node src/index.ts",
-    "build": "cd ../../packages/db && prisma generate && cd ../../apps/blog-backend && tsc",
+    "build": "cd ../../packages/db && pnpm i prisma && prisma generate && cd ../../apps/blog-backend && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
