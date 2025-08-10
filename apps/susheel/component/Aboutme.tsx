@@ -15,10 +15,13 @@ export const Aboutme = () => {
   return (
     <div className='flex flex-col justify-around'>
       <motion.div
+           initial={{ rotateY:0,opacity: 0 }}
+           animate={{ rotateY:150,  opacity: 1 }}
+          transition={{ duration: 0.3, ease: 'easeIn' }}
            layout
             className='w-full  h-[200px]  lg:h-[300px] relative'
            >
-      {<ElfCanvas />}
+      <ElfCanvas />
       </motion.div>
       <div className='m-2 flex flex-col gap-2'>
         <h2 className='text-purple-400 font-share-mono text-2xl'>
