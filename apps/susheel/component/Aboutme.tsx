@@ -13,6 +13,8 @@ export const Aboutme = () => {
 
   return (
     <div className='flex flex-col justify-around'>
+      {/* under dev */}
+      <div className='text-orange-400 font-semibold'>⚠︎Under Dev</div>
       <motion.div
            initial={{ rotateY:0,opacity: 0 }}
            animate={{ rotateY:150,  opacity: 1 }}
@@ -27,7 +29,7 @@ export const Aboutme = () => {
           sush.eel
         </h2>
         <p className='text-neutral-400 font-sono'>
-          is a developer who is passionate about creating web apps and tools for real-world use. I focus on solving problems and building effective solutions. Currently, I’m exploring Machine Learning and putting my hands inside python🐍, looking forward to contributing to the AI-driven future..  </p>
+          is a developer who is passionate about creating web apps and tools for real-world use. I focus on solving problems and building effective solutions. Currently, I’m exploring <span className='font-semibold text-orange-900'>Machine Learning </span> and putting my hands inside <br/> <span className='text-orange-900 hover:text-2xl transition-all duration-300'>Python🐍</span>, looking forward to contributing to the AI-driven future..  </p>
       </div>
     </div>
   )

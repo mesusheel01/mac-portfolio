@@ -7,8 +7,9 @@ export const Work = () => {
         <div className='m-2 flex flex-col gap-2'>
             <h1 className='text-purple-400 text-xl font-share-mono'>Work till now...</h1>
             <ul className='text-neutral-400 font-sono list-disc pl-5'>
-                <li><a target='_blank' href='https://susheelr.vercel.app/'>Click on the project icon over in the dock!</a></li>
-                <li><a target='_blank' href='https://github.com/mesusheel01'>Github.com pr janiye mere baare me!</a></li>
+                <li>Click on the project icon in the dock at <a
+                className='text-purple-400 hover:text-purple-600 transition-colors duration-300' href='https://susheelr.vercel.app'>sushe.el</a></li>
+                <li>Janiye mere baare me <a className='text-purple-400 hover:text-purple-600 transition-colors duration-300' target='_blank' href='https://github.com/mesusheel01'>Github.com </a> pr!</li>
             </ul>
             <picture>
                 <source media="(prefers-color-scheme: dark)" srcSet="https://raw.githubusercontent.com/mesusheel01/mesusheel01/output/github-snake-dark.svg" />

@@ -74,7 +74,7 @@ export const Hero = () => {
         </h1>
         <strong className="text-lg md:text-xl text-purple-700 dark:text-purple-500 font-semibold transition-all duration-500">{tagline}</strong>
         <p className="text-lg md:text-xl text-neutral-500 dark:text-neutral-600 max-w-xl">
-          I create amazing tools, web apps that could be useful. Passionate about building products that make a difference. Let's build hard with smart💻!
+        I create amazing tools, web apps that could be useful. Passionate about building products that make a difference. Let's build hard with smart💻!
         </p>
       </motion.div>
       {/* Right: Image Placeholder */}

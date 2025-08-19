@@ -38,6 +38,9 @@ export const Menubar = () => {
               {"< "}<span className='text-neutral800 dark:text-neutral-300'>sushe</span>.<span className='text-purple-700'>el</span>{" />"}
             </div>
           </div>
+          {/* under development section */}
+          <div className='text-orange-400 font-bold'>⚠︎ Under Dev</div>
+          
           {/* right section of the menubar */}
           <div className='menu-right transition-all duration-300 flex gap-20 mx-3'>
             <ThemeSwitch />
