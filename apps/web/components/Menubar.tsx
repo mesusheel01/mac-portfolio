@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React, { useState, useEffect } from 'react'
 import ThemeSwitch from './ThemeSwitch'
+import { motion } from 'motion/react'
 
 export const Menubar = () => {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -39,7 +40,16 @@ export const Menubar = () => {
             </div>
           </div>
           {/* under development section */}
-          <div className='text-orange-400 font-bold'>⚠︎ Under Dev</div>
+          <motion.div
+          initial={{ x: -10,rotateX:10, rotateY:10 }}
+          animate={{ x: 0 , rotateX:0, rotateY:0 }}
+          transition={{
+          duration: 0.5,
+          type:'spring',
+          stiffness: 100,
+          damping:2 //some popping looks cool with this value.
+        }}
+          className='text-orange-400 font-bold'>⚠︎ Under Dev</motion.div>
           
           {/* right section of the menubar */}
           <div className='menu-right transition-all duration-300 flex gap-20 mx-3'>
