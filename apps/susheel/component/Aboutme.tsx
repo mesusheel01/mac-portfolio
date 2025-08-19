@@ -27,10 +27,7 @@ export const Aboutme = () => {
           sush.eel
         </h2>
         <p className='text-neutral-400 font-sono'>
-          is a developer, he builds cool interfaces and websites that could be
-          useful in real world, till now he have created few projects that will
-          be in the project section if you go through the link under it.
-        </p>
+          is a developer who is passionate about creating web apps and tools for real-world use. I focus on solving problems and building effective solutions. Currently, I’m exploring Machine Learning and putting my hands inside python🐍, looking forward to contributing to the AI-driven future..  </p>
       </div>
     </div>
   )
