@@ -1,10 +1,10 @@
 'use client'
 import React from 'react'
-import { Blogs } from './Blogs'
+import Blogs from './Blogs'
 import { Techstack } from './Techstack'
 import { Aboutme } from './Aboutme'
 import { Work } from './Work'
-import {motion } from 'motion/react' 
+import {motion } from 'motion/react'
 
 export const Home = () => {
   return (

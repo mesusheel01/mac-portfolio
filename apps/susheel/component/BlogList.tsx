@@ -1,0 +1,42 @@
+import { BlogCard } from "./BlogCard";
+
+type Blog = {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl?: string;
+};
+
+export async function BlogsList() {
+  let blogs: Blog[] = [];
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog`, {
+    headers: {
+      Authorization: `Bearer ${process.env.API_SECRET}`,
+    },
+    next:{revalidate: 60}
+  });
+
+  if (!res.ok) {
+    return <p className="text-red-500">Failed to load blogs.</p>;
+  }
+  const data = await res.json();
+  blogs = data.allBlogs || [];
+
+  if (blogs.length === 0) {
+    return <p>No blogs found!</p>;
+  }
+
+  return (
+    <div className="mt-4">
+      {blogs.map((blog) => (
+        <div
+          key={blog.id}
+          className="flex flex-col m-2 text-lg text-neutral-400 items-center justify-center"
+        >
+          <BlogCard blog={blog} />
+        </div>
+      ))}
+    </div>
+  );
+}
