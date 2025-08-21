@@ -14,7 +14,11 @@ export const Aboutme = () => {
   return (
     <div className='flex flex-col justify-around'>
       {/* under dev */}
-      <div className='text-orange-400 font-semibold'>⚠︎Under Dev</div>
+      <motion.div
+      initial={{ x: -100}}
+      animate={{ x: 0}}
+      transition={{ duration: 0.3, ease: 'easeIn' }}
+      className='text-orange-400 font-semibold'>⚠︎Under Dev</motion.div>
       <motion.div
            initial={{ rotateY:0,opacity: 0 }}
            animate={{ rotateY:150,  opacity: 1 }}
