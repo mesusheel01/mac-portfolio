@@ -29,8 +29,8 @@ export const Aboutme = () => {
       <ElfCanvas />
       </motion.div>
       <div className='m-2 flex flex-col gap-2'>
-        <h2 className='text-purple-400 font-share-mono text-2xl'>
-          sush.eel
+        <h2 className='text-purple-400 font-share-mono text-xl'>
+          sushe.el
         </h2>
         <p className='text-neutral-400 font-sono'>
           is a developer who is passionate about creating web apps and tools for real-world use. I focus on solving problems and building effective solutions. Currently, I’m exploring <span className='font-semibold text-orange-900'>Machine Learning </span> and putting my hands inside <br/> <span className='text-orange-900 hover:text-2xl transition-all duration-300'>Python🐍</span>, looking forward to contributing to the AI-driven future..  </p>

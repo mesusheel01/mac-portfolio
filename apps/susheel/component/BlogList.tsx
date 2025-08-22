@@ -1,18 +1,18 @@
 import { BlogCard } from "./BlogCard";
 
 type Blog = {
-  id: number;
-  title: string;
-  description: string;
-  imageUrl?: string;
+id: number;
+title: string;
+description: string;
+imageUrl?: string;
 };
 
 export async function BlogsList() {
-  let blogs: Blog[] = [];
+let blogs: Blog[] = [];
 
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog`, {
-    headers: {
-      Authorization: `Bearer ${process.env.API_SECRET}`,
+const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog`, {
+  headers: {
+    Authorization: `Bearer ${process.env.API_SECRET}`,
     },
     next:{revalidate: 60}
   });
