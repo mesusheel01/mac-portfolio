@@ -25,7 +25,6 @@ export const Home = () => {
       <Aboutme />
       <Work />
       <Techstack />
-      <Blogs />
     </motion.div>
   )
 }
