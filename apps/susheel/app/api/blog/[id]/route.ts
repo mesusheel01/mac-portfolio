@@ -1,12 +1,20 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { prismaClient } from "@repo/db";
 import { checkAuth } from "../route";
+import { Route } from "next";
 
 const pc = prismaClient;
+type RouteParams = {
+  params: {
+    id: string;
+  };
+};
+
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: RouteParams
+
 ) {
   if (!checkAuth(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -30,7 +38,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: RouteParams
 ) {
   if (!checkAuth(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
