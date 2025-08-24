@@ -7,29 +7,44 @@ type Blog = {
   imageUrl?: string;
 };
 
+export const dynamic = "force-dynamic"; // ensures fetch happens at runtime, not build time
+
 export async function BlogsList() {
   const base =
     process.env.NEXT_PUBLIC_API_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
 
+  let blogs: Blog[] = [];
 
-  const res = await fetch(`${base}/api/blog`, {
-    headers: {
-      Authorization: `Bearer KYARECHEEKU`,
-    },
-    next: { revalidate: 60 },
-  });
+  try {
+    const res = await fetch(`${base}/api/blog`, {
+      headers: {
+        Authorization: `Bearer ${process.env.API_SECRET || "KYARECHEEKU"}`,
+      },
+      cache: "no-store", // ensure fresh data every time (can also use revalidate)
+    });
 
-  if (!res.ok) {
+    if (!res.ok) {
+      console.error("Failed to fetch blogs:", res.statusText);
+      return (
+        <div className="w-full flex justify-center items-center mt-2">
+          <p className="text-red-500">Failed to load blogs.</p>
+        </div>
+      );
+    }
+
+    const data = await res.json();
+    blogs = data.allBlogs || [];
+  } catch (error) {
+    console.error("Error fetching blogs:", error);
     return (
       <div className="w-full flex justify-center items-center mt-2">
-        <p className="text-red-500">Failed to load blogs.</p>
+        <p className="text-red-500">Error loading blogs.</p>
       </div>
     );
   }
-
-  const data = await res.json();
-  const blogs: Blog[] = data.allBlogs || [];
 
   if (blogs.length === 0) {
     return <p>No blogs found!</p>;
