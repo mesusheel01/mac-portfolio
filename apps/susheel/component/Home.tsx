@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import Blogs from './Blogs'
 import { Techstack } from './Techstack'
 import { Aboutme } from './Aboutme'
 import { Work } from './Work'
