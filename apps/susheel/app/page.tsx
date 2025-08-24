@@ -8,6 +8,7 @@ const page= () => {
       <div  className='bg-neutral-900 w-[800px] min-h-screen'>
       <Home />
       <Blogs />
+      <AddBlog />
       </div>
     </div>
   )

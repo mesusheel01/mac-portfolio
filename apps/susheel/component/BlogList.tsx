@@ -6,7 +6,7 @@ title: string;
 description: string;
 imageUrl?: string;
 };
-const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://localhost:3000";
+const apiBase = process.env.NEXT_PUBLIC_API_URL
 
 export async function BlogsList() {
 let blogs: Blog[] = [];
