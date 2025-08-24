@@ -7,7 +7,6 @@ type Blog = {
   imageUrl?: string;
 };
 
-export const dynamic = "force-dynamic"; // ensures fetch happens at runtime, not build time
 
 export async function BlogsList() {
   const base =
@@ -23,7 +22,7 @@ export async function BlogsList() {
       headers: {
         Authorization: `Bearer ${process.env.API_SECRET || "KYARECHEEKU"}`,
       },
-      cache: "no-store", // ensure fresh data every time (can also use revalidate)
+      next: { revalidate: 60 } 
     });
 
     if (!res.ok) {
