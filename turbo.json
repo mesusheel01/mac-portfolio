@@ -17,6 +17,12 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "@repo/db#build": {
+      "outputs": [
+        "node_modules/.prisma/**",
+        "prisma/**"
+      ]
     }
   }
   
