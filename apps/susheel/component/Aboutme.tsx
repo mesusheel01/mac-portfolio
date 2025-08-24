@@ -21,8 +21,7 @@ export const Aboutme = () => {
           duration: 0.3,
           type:'spring',
           stiffness: 100,
-          damping:2 
-        }}
+          damping:8 }}
       className='text-orange-400 font-semibold'>⚠︎Under Dev</motion.div>
       <motion.div
            initial={{ rotateY:0,opacity: 0 }}
