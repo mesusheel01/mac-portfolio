@@ -29,12 +29,12 @@ const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog`, {
 
   return (
     <div className="mt-4">
-      {blogs.map((blog) => (
+      {blogs.map((b) => (
         <div
-          key={blog.id}
+          key={b.id}
           className="flex flex-col m-2 text-lg text-neutral-400 items-center justify-center"
         >
-          <BlogCard blog={blog} />
+          <BlogCard blog={b} />
         </div>
       ))}
     </div>

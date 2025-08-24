@@ -6,7 +6,7 @@ type Blog = {
   id: number;
   title: string;
   description: string;
-  imageUrl: string;
+  imageUrl?: string;
 };
 
 export const BlogCard = ({blog}:{blog: Blog}) => {
