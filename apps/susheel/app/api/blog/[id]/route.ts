@@ -1,9 +1,13 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { prismaClient } from "@repo/db";
-import { checkAuth } from "../route";
 
 const pc = prismaClient;
 
+function checkAuth(request: Request) {
+    const authHeader = request.headers.get("authorization");
+    return authHeader === `Bearer ${process.env.API_SECRET}`;
+  }
+  
 export async function PUT(request: NextRequest, context: any): Promise<NextResponse> {
   const { params } = context;
 

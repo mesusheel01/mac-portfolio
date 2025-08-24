@@ -4,7 +4,7 @@ import { prismaClient } from "@repo/db";
 const pc = prismaClient;
 // utility function
 
-export function checkAuth(request: Request) {
+function checkAuth(request: Request) {
     const authHeader = request.headers.get("authorization");
     return authHeader === `Bearer ${process.env.API_SECRET}`;
   }
