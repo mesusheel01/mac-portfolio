@@ -15,8 +15,8 @@ datasource db {
 }
 
 model blog {
-   id             Int             @id         @default(autoincrement())
-   title          String          @unique       
-   description    String          @unique 
-   imageUrl       String?  
+  id          Int     @id @default(autoincrement())
+  title       String  @unique
+  description String
+  imageUrl    String?
 }

@@ -33,14 +33,20 @@ export async function POST(request: Request) {
   }
 
   try {
-    const { title, description, imageUrl } = await request.json();
+    const body = await request.json();
+
+    const { title, description, imageUrl } = body;
+    const existingBlog = await pc.blog.findUnique({
+      where: { title },
+    });
+
+    if (existingBlog) {
+      return NextResponse.json({ error: "Title already exists" }, { status: 400 });
+    }
+
     const created = await pc.blog.create({
       data: { title, description, imageUrl },
     });
-
-    if (!created) {
-      return NextResponse.json({ msg: "Failed to create blog" }, { status: 400 });
-    }
 
     return NextResponse.json({ msg: "Blog has been successfully created!" }, { status: 201 });
   } catch (error) {
