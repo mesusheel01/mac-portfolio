@@ -6,12 +6,11 @@ title: string;
 description: string;
 imageUrl?: string;
 };
-const apiBase = process.env.NEXT_PUBLIC_API_URL
 
 export async function BlogsList() {
 let blogs: Blog[] = [];
 
-const res = await fetch(`http://${apiBase}/api/blog`, {
+const res = await fetch(`/api/blog`, {
   headers: {
     Authorization: `Bearer ${process.env.API_SECRET}`,
     },
@@ -19,7 +18,11 @@ const res = await fetch(`http://${apiBase}/api/blog`, {
   });
 
   if (!res.ok) {
-    return <p className="text-red-500">Failed to load blogs.</p>;
+    return (
+      <div className="w-full flex justify-center items-center mt-2">
+        <p className="text-red-500">Failed to load blogs.</p>
+      </div>
+    );
   }
   const data = await res.json();
   blogs = data.allBlogs || [];
