@@ -10,7 +10,7 @@ imageUrl?: string;
 export async function BlogsList() {
 let blogs: Blog[] = [];
 
-const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/blog`, {
+const res = await fetch(`https://whoissusheel.vercel.app/api/blog`, {
   headers: {
     Authorization: `Bearer ${process.env.API_SECRET}`,
     },
