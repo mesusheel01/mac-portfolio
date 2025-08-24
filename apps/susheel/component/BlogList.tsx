@@ -6,11 +6,12 @@ title: string;
 description: string;
 imageUrl?: string;
 };
-const requestUrl ='http://localhost:3000';
+const apiBase = process.env.NEXT_PUBLIC_API_URL || "https://localhost:3000";
+
 export async function BlogsList() {
 let blogs: Blog[] = [];
 
-const res = await fetch(`${requestUrl}/api/blog`, {
+const res = await fetch(`${apiBase}/api/blog`, {
   headers: {
     Authorization: `Bearer ${process.env.API_SECRET}`,
     },
