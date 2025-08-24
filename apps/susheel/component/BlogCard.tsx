@@ -10,6 +10,12 @@ type Blog = {
 };
 
 export const BlogCard = ({blog}:{blog: Blog}) => {
+
+  const handBlogClick = () => {
+    // Handle blog click
+    window.open(`https://whoissusheel.vercel.app/blog/${blog.id}`, '_blank');
+  }
+
   return (
     <div>
         <motion.div
@@ -22,6 +28,7 @@ export const BlogCard = ({blog}:{blog: Blog}) => {
           opacity:0.7,
           scale:1.04,
         }}
+        onClick={handBlogClick}
         className='bg-transparent font-sono flex gap-2 justify-start overflow-hidden w-[700px] rounded-lg border border-purple-400 p-2 object-contain'>
           <span className='text-purple-300'>{"↦"}</span> 
           <span>{blog.title}</span>
