@@ -15,7 +15,7 @@ export async function BlogsList() {
 
   const res = await fetch(`${base}/api/blog`, {
     headers: {
-      Authorization: `Bearer ${process.env.API_SECRET}`,
+      Authorization: `Bearer KYARECHEEKU`,
     },
     next: { revalidate: 60 },
   });

@@ -10,7 +10,7 @@ export async function createBlog(title: string, description: string, imageUrl?: 
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.API_SECRET}`, // stays the same
+      Authorization: `Bearer KYARECHEEKU`, // stays the same
     },
     body: JSON.stringify({
       title:title,
