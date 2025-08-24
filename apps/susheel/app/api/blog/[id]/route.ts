@@ -4,7 +4,7 @@ import { checkAuth } from "../route";
 
 const pc = prismaClient;
 
-export async function PUT(request: NextRequest, context: { params: { id: string } }): Promise<NextResponse> {
+export async function PUT(request: NextRequest, context: any): Promise<NextResponse> {
   const { params } = context;
 
   if (!checkAuth(request)) {
@@ -27,7 +27,7 @@ export async function PUT(request: NextRequest, context: { params: { id: string 
   }
 }
 
-export async function DELETE(request: NextRequest, context: { params: { id: string } }): Promise<NextResponse> {
+export async function DELETE(request: NextRequest, context: any): Promise<NextResponse> {
   const { params } = context;
 
   if (!checkAuth(request)) {
