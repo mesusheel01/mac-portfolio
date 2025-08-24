@@ -29,6 +29,7 @@
         "prisma/**"
       ],
       "env": [
+        "API_SECRET",
         "DATABASE_URL"
       ]
     }

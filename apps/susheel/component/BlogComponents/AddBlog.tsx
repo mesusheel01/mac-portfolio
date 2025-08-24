@@ -30,6 +30,7 @@ export const AddBlog = () => {
       await createBlog(form.title, form.content, form.imageUrl);
       alert("Blog added successfully");
       setForm({ title: "", content: "", imageUrl: "" });
+      window.location.reload(); // Reload to fetch the new blog
     } catch (error) {
       console.error("Error adding blog:", error);
       alert("Error adding blog");
