@@ -1,20 +1,22 @@
 import { BlogCard } from "./BlogCard";
 
 type Blog = {
-id: number;
-title: string;
-description: string;
-imageUrl?: string;
+  id: number;
+  title: string;
+  description: string;
+  imageUrl?: string;
 };
 
 export async function BlogsList() {
-let blogs: Blog[] = [];
+  const baseUrl =
+    process.env.NEXT_PUBLIC_API_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
-const res = await fetch(`/api/blog`, {
-  headers: {
-    Authorization: `Bearer ${process.env.API_SECRET}`,
+  const res = await fetch(`${baseUrl}/api/blog`, {
+    headers: {
+      Authorization: `Bearer ${process.env.API_SECRET}`,
     },
-    next:{revalidate: 60}
+    next: { revalidate: 60 },
   });
 
   if (!res.ok) {
@@ -24,8 +26,9 @@ const res = await fetch(`/api/blog`, {
       </div>
     );
   }
+
   const data = await res.json();
-  blogs = data.allBlogs || [];
+  const blogs: Blog[] = data.allBlogs || [];
 
   if (blogs.length === 0) {
     return <p>No blogs found!</p>;
