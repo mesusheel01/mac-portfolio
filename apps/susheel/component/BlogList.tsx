@@ -11,7 +11,7 @@ const apiBase = process.env.NEXT_PUBLIC_API_URL
 export async function BlogsList() {
 let blogs: Blog[] = [];
 
-const res = await fetch(`${apiBase}/api/blog`, {
+const res = await fetch(`http://${apiBase}/api/blog`, {
   headers: {
     Authorization: `Bearer ${process.env.API_SECRET}`,
     },
