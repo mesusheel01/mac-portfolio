@@ -1,3 +1,4 @@
+import { AddBlog } from '@/component/AddBlog';
 import Blogs from '@/component/Blogs';
 import { Home } from '@/component/Home';
 import React from 'react'
