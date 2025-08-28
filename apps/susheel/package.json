@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "pnpm --filter @repo/db build && next build",
+    "postinstall": "prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
