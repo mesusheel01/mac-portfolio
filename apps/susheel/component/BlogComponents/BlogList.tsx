@@ -1,4 +1,4 @@
-import { BlogCard } from "./BlogCard";
+import BlogsShowMore from "./BlogShowMore";
 
 type Blog = {
   id: number;
@@ -6,7 +6,6 @@ type Blog = {
   description: string;
   imageUrl?: string;
 };
-
 
 export async function BlogsList() {
   const base =
@@ -22,11 +21,10 @@ export async function BlogsList() {
       headers: {
         Authorization: `Bearer ${process.env.API_SECRET}`,
       },
-      next: { revalidate: 60 } 
+      next: { revalidate: 60 }, // ISR for 1 min
     });
 
     if (!res.ok) {
-      console.error("Failed to fetch blogs:", res.statusText);
       return (
         <div className="w-full flex justify-center items-center mt-2">
           <p className="text-red-500">Failed to load blogs.</p>
@@ -46,19 +44,12 @@ export async function BlogsList() {
   }
 
   if (blogs.length === 0) {
-    return <p>No blogs found!</p>;
+    return <p className="text-gray-400">No blogs found!</p>;
   }
 
   return (
-    <div className="mt-4">
-      {blogs.map((b) => (
-        <div
-          key={b.id}
-          className="flex flex-col m-2 text-lg text-neutral-400 items-center justify-center"
-        >
-          <BlogCard blog={b} />
-        </div>
-      ))}
+    <div className="mt-6 flex flex-col items-center gap-6">
+      <BlogsShowMore blogs={blogs} />
     </div>
   );
 }
