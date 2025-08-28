@@ -8,8 +8,8 @@
   },
   "scripts": {
     "generate": "prisma generate",
-    "postinstall": "prisma generate",
-    "build": "pnpm run generate"    
+    "postinstall": "pnpm install prisma && prisma generate",
+    "build": "pnpm run generate"
   },
   "keywords": [],
   "author": "",
