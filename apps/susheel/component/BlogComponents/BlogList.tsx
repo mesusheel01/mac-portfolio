@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'; // ✅ Prevents SSG issues
+
 import BlogsShowMore from "./BlogShowMore";
 
 type Blog = {
@@ -10,9 +12,11 @@ type Blog = {
 export async function BlogsList() {
   const base =
     process.env.NEXT_PUBLIC_API_URL ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+    (typeof window === 'undefined'
+      ? process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : ''
+      : '');
 
   let blogs: Blog[] = [];
 
@@ -24,7 +28,9 @@ export async function BlogsList() {
       next: { revalidate: 60 }, // ISR for 1 min
     });
 
-    if (!res.ok) {
+    const contentType = res.headers.get('content-type') || '';
+    if (!res.ok || !contentType.includes('application/json')) {
+      console.error('Invalid response from API:', await res.text());
       return (
         <div className="w-full flex justify-center items-center mt-2">
           <p className="text-red-500">Failed to load blogs.</p>
