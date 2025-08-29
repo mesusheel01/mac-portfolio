@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
+    "@repo/db": "workspace:*",
     "@types/three": "^0.179.0",
     "axios": "^1.11.0",
     "framer-motion": "^12.23.9",
@@ -22,7 +23,6 @@
     "zustand": "^5.0.6"
   },
   "devDependencies": {
-    "@repo/db": "workspace:*",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
