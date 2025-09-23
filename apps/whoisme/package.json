@@ -1,10 +1,10 @@
 {
-  "name": "susheel",
+  "name": "whoisme",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm --filter @repo/db build && next build",
+    "build": "pnpm --filter @repo/db build && next build && prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
