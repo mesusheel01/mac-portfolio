@@ -1,4 +1,5 @@
 import { prismaClient } from "@repo/db";
+export const dynamic = 'force-dynamic';
 import BlogsShowMore from "./BlogShowMore";
 
 type Blog = {
