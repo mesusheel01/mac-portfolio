@@ -1,9 +1,5 @@
 {
   "buildCommand": "pnpm --filter @repo/db build && pnpm --filter susheel build",
   "outputDirectory": "apps/susheel/.next",
-  "installCommand": "pnpm install",
-  "env": {
-    "DATABASE_URL": "@database-url",
-    "API_SECRET": "@api-secret"
-  }
+  "installCommand": "pnpm install"
 }
