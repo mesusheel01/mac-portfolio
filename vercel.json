@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @repo/db build && pnpm --filter susheel build",
-  "outputDirectory": "apps/susheel/.next",
+  "buildCommand": "pnpm --filter @repo/db build && pnpm --filter whoisme build",
+  "outputDirectory": "apps/whoisme/.next",
   "installCommand": "pnpm install"
 }
