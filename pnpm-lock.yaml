@@ -93,6 +93,9 @@ importers:
 
   apps/whoisme:
     dependencies:
+      '@prisma/client':
+        specifier: ^6.11.1
+        version: 6.11.1(prisma@6.11.1(typescript@5.8.2))(typescript@5.8.2)
       '@react-three/drei':
         specifier: ^10.6.1
         version: 10.6.1(@react-three/fiber@9.3.0(@types/react@19.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.179.1))(@types/react@19.1.0)(@types/three@0.179.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.179.1)
