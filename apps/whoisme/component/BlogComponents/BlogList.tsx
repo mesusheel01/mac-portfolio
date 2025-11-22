@@ -1,45 +1,19 @@
-export const dynamic = 'force-dynamic'; // ✅ Prevents SSG issues
-
+import { prismaClient } from "@repo/db";
 import BlogsShowMore from "./BlogShowMore";
 
 type Blog = {
   id: number;
   title: string;
   description: string;
-  imageUrl?: string;
+  imageUrl?: string | null;
 };
 
 export async function BlogsList() {
-  const base =
-    process.env.NEXT_PUBLIC_API_URL ||
-    (typeof window === 'undefined'
-      ? process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : ''
-      : '');
-
   let blogs: Blog[] = [];
 
   try {
-    const res = await fetch(`${base}/api/blog`, {
-      headers: {
-        Authorization: `Bearer ${process.env.API_SECRET}`,
-      },
-      next: { revalidate: 60 }, // ISR for 1 min
-    });
-
-    const contentType = res.headers.get('content-type') || '';
-    if (!res.ok || !contentType.includes('application/json')) {
-      console.error('Invalid response from API:', await res.text());
-      return (
-        <div className="w-full flex justify-center items-center mt-2">
-          <p className="text-red-500">Failed to load blogs.</p>
-        </div>
-      );
-    }
-
-    const data = await res.json();
-    blogs = data.allBlogs || [];
+    const data = await prismaClient.blog.findMany();
+    blogs = data || [];
   } catch (error) {
     console.error("Error fetching blogs:", error);
     return (
@@ -55,7 +29,7 @@ export async function BlogsList() {
 
   return (
     <div className="mt-6 flex flex-col items-center gap-6">
-      <BlogsShowMore blogs={blogs} />
+      <BlogsShowMore blogs={blogs as any} />
     </div>
   );
 }

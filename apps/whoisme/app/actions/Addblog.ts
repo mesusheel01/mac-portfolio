@@ -1,28 +1,29 @@
 // app/actions/blog.ts
 "use server";
 
-export async function createBlog(title: string, description: string, imageUrl?: string) {
-  const base =
-    process.env.NEXT_PUBLIC_API_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+import { prismaClient } from "@repo/db";
 
-  const res = await fetch(`${base}/api/blog`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer KYARECHEEKU`, // stays the same
-    },
-    body: JSON.stringify({
-      title:title,
-      description:description, // use description instead of content
-      imageUrl: imageUrl || null, // send null if not provided
-    }),
-    cache: "no-store",
-  });
-  console.log(res);
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Create blog failed: ${res.status} ${text}`);
+export async function createBlog(title: string, description: string, imageUrl?: string) {
+  try {
+    const existingBlog = await prismaClient.blog.findUnique({
+      where: { title },
+    });
+
+    if (existingBlog) {
+      throw new Error("Title already exists");
+    }
+
+    const created = await prismaClient.blog.create({
+      data: {
+        title,
+        description,
+        imageUrl: imageUrl || null,
+      },
+    });
+
+    return { msg: "Blog has been successfully created!", blog: created };
+  } catch (error: any) {
+    console.error("Error creating blog:", error);
+    throw new Error(error.message || "Failed to create blog");
   }
-  return res.json();
 }
