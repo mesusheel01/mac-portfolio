@@ -1,5 +1,5 @@
 {
   "buildCommand": "pnpm --filter @repo/db build && pnpm --filter whoisme build",
-  "outputDirectory": "apps/whoisme/.next",
+  "outputDirectory": "/.next",
   "installCommand": "pnpm install"
 }
