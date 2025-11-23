@@ -15,29 +15,30 @@ export const Aboutme = () => {
     <div className='flex flex-col justify-around'>
       {/* under dev */}
       <motion.div
-      initial={{ opacity: 0, x: -100}}
-      animate={{ opacity:1, x: 0}}
-       transition={{
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
           duration: 0.3,
-          type:'spring',
+          type: 'spring',
           stiffness: 100,
-          damping:8 }}
-      className='text-orange-400 font-semibold'>⚠︎Under Dev</motion.div>
+          damping: 8
+        }}
+        className='text-orange-400 font-semibold'>⚠︎Under Dev</motion.div>
       <motion.div
-           initial={{ rotateY:0,opacity: 0 }}
-           animate={{ rotateY:150,  opacity: 1 }}
-          transition={{ duration: 0.3, ease: 'easeIn' }}
-           layout
-            className='w-full  h-[200px]  lg:h-[300px] relative'
-           >
-      <ElfCanvas />
+        initial={{ rotateY: 0, opacity: 0 }}
+        animate={{ rotateY: 150, opacity: 1 }}
+        transition={{ duration: 0.3, ease: 'easeIn' }}
+        layout
+        className='w-full  h-[200px]  lg:h-[300px] relative'
+      >
+        <ElfCanvas />
       </motion.div>
       <div className='m-2 flex flex-col gap-2'>
         <h2 className='text-purple-400 font-share-mono text-xl'>
           sushe.el
         </h2>
         <p className='text-neutral-400 font-sono'>
-          is a developer who is passionate about creating web apps and tools for real-world use. I focus on solving problems and building effective solutions. Currently, I’m exploring <span className='font-semibold text-orange-900'>Machine Learning </span> and putting my hands inside <br/> <span className='text-orange-900 hover:text-2xl transition-all duration-300'>Python🐍</span>, looking forward to contributing to the AI-driven future..  </p>
+          is a developer who is passionate about creating web apps and tools for real-world use. I focus on solving problems and building effective solutions. Currently, I’m exploring <span className='font-semibold text-purple-900'>Machine Learning </span> and putting my hands inside <br /> <span className='text-purple-900 hover:text-2xl transition-all duration-300'>Python🐍</span>, looking forward to contributing to the AI-driven future..  </p>
       </div>
     </div>
   )
