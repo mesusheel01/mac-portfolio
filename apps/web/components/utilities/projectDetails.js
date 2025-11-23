@@ -1,27 +1,34 @@
 export const project = [
     {
         id: 1,
+        src: "/projectIcons/daycraft.png",
+        alt: "daycraft",
+        name: "Daycraft",
+        url: "https://daycraft-ai.vercel.app/"
+    },
+    {
+        id: 2,
         src: "/projectIcons/bolt-list.png",
         alt: "bolt-list",
         name: "Bolt-list",
         url: "https://bolt-list.vercel.app/"
     },
     {
-        id: 2,
+        id: 3,
         src: "/projectIcons/cognito.png",
         alt: "cognito",
         name: "Cognito",
         url: "https://cognitos.vercel.app/"
     },
     {
-        id: 3,
+        id: 4,
         src: "/projectIcons/gosipy.png",
         alt: "gosipy",
         name: "Gosipy",
         url: "https://gosipy.vercel.app/"
     },
     {
-        id: 4,
+        id: 5,
         src: "/projectIcons/learn-verse.png",
         alt: "learnverse",
         name: "Learnverse",
