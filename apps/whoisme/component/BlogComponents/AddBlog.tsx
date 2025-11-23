@@ -1,6 +1,7 @@
 'use client'
 import { createBlog } from '@/app/actions/Addblog';
 import React from 'react'
+import { BlogsList } from './BlogList';
 
 export const AddBlog = () => {
   const [isSusheel, setIsSusheel] = React.useState(false);
@@ -30,7 +31,8 @@ export const AddBlog = () => {
       await createBlog(form.title, form.content, form.imageUrl);
       alert("Blog added successfully");
       setForm({ title: "", content: "", imageUrl: "" });
-      window.location.reload(); // Reload to fetch the new blog
+      // window.location.reload();
+      BlogsList(); // Reload to fetch the new blog
     } catch (error) {
       console.error("Error adding blog:", error);
       alert("Error adding blog");
