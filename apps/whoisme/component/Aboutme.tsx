@@ -15,16 +15,6 @@ export const Aboutme = () => {
     <div className='flex flex-col justify-around'>
       {/* under dev */}
       <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{
-          duration: 0.3,
-          type: 'spring',
-          stiffness: 100,
-          damping: 8
-        }}
-        className='text-orange-400 font-semibold'>⚠︎Under Dev</motion.div>
-      <motion.div
         initial={{ rotateY: 0, opacity: 0 }}
         animate={{ rotateY: 150, opacity: 1 }}
         transition={{ duration: 0.3, ease: 'easeIn' }}
