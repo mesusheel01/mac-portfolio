@@ -2,11 +2,38 @@
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useState, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Loader , OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF, Center, Html, useProgress } from "@react-three/drei";
 
+const CanvasLoader = () => {
+  const { progress } = useProgress();
+  return (
+    <Html
+      as='div'
+      center
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <span className='canvas-loader'></span>
+      <p
+        style={{
+          fontSize: 14,
+          color: "#F1F1F1",
+          fontWeight: 800,
+          marginTop: 40,
+        }}
+      >
+        {progress.toFixed(2)}%
+      </p>
+    </Html>
+  );
+};
 
 const ElfModel = () => {
-  const elf = useGLTF("./elf/scene.gltf");
+  const elf = useGLTF("/elf/scene.gltf");
   const [isMobile, setIsMobile] = useState(false);
   const [rotationSpeed, setRotationSpeed] = useState(2); // radians per second
   const modelRef = useRef<THREE.Object3D>(null);
@@ -37,26 +64,30 @@ const ElfModel = () => {
   });
 
   return (
-    <mesh>
-      <hemisphereLight intensity={5} groundColor='black' />
-      <spotLight
-        position={[-20, 50, 10]}
-        angle={0.12}
-        penumbra={1}
-        intensity={1}
-        castShadow
-        shadow-mapSize={1024}
-        shadow-color="white"
-      />
-      <pointLight intensity={1} />
-      <primitive
-        ref={modelRef}
-        object={elf.scene}
-        scale={isMobile ? 4.7 : 6}
-        position={[0, -3, 0]}
-        rotation={[0, Math.PI, 0]} // rotate 180deg on y so model faces front
-      />
-    </mesh>
+    <Center>
+      <mesh>
+        <hemisphereLight intensity={5} groundColor='black' />
+        <spotLight
+          position={[-20, 50, 10]}
+          angle={0.12}
+          penumbra={1}
+          intensity={1}
+          castShadow
+          shadow-mapSize={1024}
+          shadow-color="white"
+        />
+        <pointLight intensity={1} />
+        {/* Wrap in a group to separate spinning from orientation correction */}
+        <group ref={modelRef}>
+          <primitive
+            object={elf.scene}
+            scale={isMobile ? 4.7 : 6}
+            rotation={[-Math.PI / 2.2, 0, 0]} // Rotate on X to stand up
+            position={[0, -2, 0]} // Adjust vertical position if needed
+          />
+        </group>
+      </mesh>
+    </Center>
   );
 };
 
@@ -65,17 +96,15 @@ const ElfCanvas = () => {
     <>
       <Canvas
         className="elf-wiz"
-        frameloop='demand'
+        frameloop='always'
         shadows
         dpr={[1, 2]}
-        camera={{ position: [1,7, 4], fov: 45 }}
+        camera={{ position: [0, 0, 9], fov: 45 }}
         gl={{ preserveDrawingBuffer: true }}
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
             enableZoom={true}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
           />
           <ElfModel />
         </Suspense>

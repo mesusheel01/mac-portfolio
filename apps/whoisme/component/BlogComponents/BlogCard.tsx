@@ -18,7 +18,7 @@ export const BlogCard = ({ blog, onClick }: { blog: Blog; onClick: () => void })
       className="flex items-center justify-between bg-[#1e1e2e] rounded-xl border border-purple-500 shadow-md p-4 w-full max-w-3xl cursor-pointer group"
     >
       {/* Text Content */}
-      <div className="flex flex-col w-2/3">
+      <div className="flex flex-col">
         <h2 className="text-xl font-semibold text-purple-300 mb-2">{blog.title}</h2>
         <p className="text-gray-400 text-sm line-clamp-3">{blog.description}</p>
       </div>

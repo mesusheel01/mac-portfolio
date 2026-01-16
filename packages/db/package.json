@@ -7,9 +7,9 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-  "generate": "prisma generate --schema=./prisma/schema.prisma",
-  "postinstall": "prisma generate --schema=./prisma/schema.prisma",
-  "build": "prisma generate --schema=./prisma/schema.prisma"
+    "generate": "prisma generate --schema=./prisma/schema.prisma",
+    "postinstall": "prisma generate --schema=./prisma/schema.prisma",
+    "build": "prisma generate --schema=./prisma/schema.prisma"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,8 @@
   "dependencies": {
     "@prisma/client": "^6.11.1",
     "prisma": "^6.11.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.9"
   }
 }
