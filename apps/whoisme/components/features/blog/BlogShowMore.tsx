@@ -16,8 +16,8 @@ export default function BlogsShowMore({ blogs }: { blogs: Blog[] }) {
   const [showAll, setShowAll] = useState(false);
   const visibleBlogs = showAll ? blogs : blogs.slice(0, 3);
 
-    const handleBlogClick = (id: number) => () => {
-    window.open(`https://whoissusheel.vercel.app/blog/${id}`, '_blank');
+  const handleBlogClick = (id: number) => () => {
+    window.open(`/blog/${id}`, '_blank');
   };
 
   return (
