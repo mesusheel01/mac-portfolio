@@ -5,7 +5,7 @@ import { TiHomeOutline } from 'react-icons/ti';
 import { MdPersonPin } from 'react-icons/md';
 import { GiFilmProjector } from 'react-icons/gi';
 import { AiOutlineContacts } from 'react-icons/ai';
-import { MotionIcon } from '@/subComponents/MotionDockIcon';
+import { MotionIcon } from './MotionDockIcon';
 import { useRouter } from 'next/navigation';
 import { useSectionStore } from '@/store/useSectionStore';
 
@@ -56,11 +56,11 @@ export const Dock = () => {
         z-50
       "
     >
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-                  className="
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="
             h-16 min-w-fit rounded-2xl
             bg-neutral-900/60 backdrop-blur-md border border-white/20 shadow-lg
             flex items-center justify-center
@@ -69,11 +69,11 @@ export const Dock = () => {
             transition-all delay-75 duration-300
           "
       >
-       <MotionIcon onClick={handleHomeClick} icon={<TiHomeOutline />} iconVariants={iconVariants} />
-       <MotionIcon onClick={handleAboutClick} icon={<MdPersonPin />} iconVariants={iconVariants} />
-       <MotionIcon onClick={handleProjectsClick} icon={<GiFilmProjector />} iconVariants={iconVariants} />
-       <MotionIcon onClick={handleContactClick} icon={<AiOutlineContacts />} iconVariants={iconVariants} />
-      
+        <MotionIcon onClick={handleHomeClick} icon={<TiHomeOutline />} iconVariants={iconVariants} />
+        <MotionIcon onClick={handleAboutClick} icon={<MdPersonPin />} iconVariants={iconVariants} />
+        <MotionIcon onClick={handleProjectsClick} icon={<GiFilmProjector />} iconVariants={iconVariants} />
+        <MotionIcon onClick={handleContactClick} icon={<AiOutlineContacts />} iconVariants={iconVariants} />
+
       </motion.div>
     </motion.div>
   );

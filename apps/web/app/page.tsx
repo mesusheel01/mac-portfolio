@@ -1,8 +1,8 @@
-import { MyHome } from "@/components/MyHome"
+import { Shell } from "@/components/layout/Shell"
 
 const Home = () => {
   return (
-      <MyHome />  
+    <Shell />
   )
 }
 

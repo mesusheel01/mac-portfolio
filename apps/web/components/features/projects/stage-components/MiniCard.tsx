@@ -1,9 +1,9 @@
 import React, { useRef } from 'react'
-import { motion } from 'motion/react' 
+import { motion } from 'motion/react'
 import Image from 'next/image'
-import { project } from '../utilities/projectDetails'
+import { project } from '@/lib/projectDetails'
 
-export const MiniCard = ({ src, alt, name, id, onClick }:{
+export const MiniCard = ({ src, alt, name, id, onClick }: {
   src: string,
   alt: string,
   name: string,
