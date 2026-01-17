@@ -1,27 +1,21 @@
 'use client'
 import { createBlog } from '@/app/actions/Addblog';
-import React from 'react'
+import React, { useEffect, useInsertionEffect } from 'react'
 import { BlogsList } from './BlogList';
 
 export const AddBlog = () => {
   const [isSusheel, setIsSusheel] = React.useState(false);
+  const [showForm, setShowForm] = React.useState(false)
   const [form, setForm] = React.useState({
     title: "",
     content: "",
     imageUrl: ""
   });
 
-  const CheckWhoIs = () => {
-    const whois = localStorage.getItem("whois");
-    if (whois && whois === "susheel") {
-      setIsSusheel(!isSusheel);
-      // console.log(process.env.API_SECRET); --> getting undefined as running on the client side
-      console.log("whois found");
-    } else {
-      console.log("whois not found");
-      alert("Only owner of this page can add blog!");
-    }
-  }
+  useEffect(() => {
+    const token = localStorage.getItem("whois");
+    if (token === 'susheel') setIsSusheel(true)
+  }, [])
 
   const handleAddBlog = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,14 +35,14 @@ export const AddBlog = () => {
 
   return (
     <div className="flex flex-col items-center mt-6">
-      <button
-        onClick={CheckWhoIs}
+      {isSusheel && <button
+        onClick={() => setShowForm(prev => !prev)}
         className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-md transition duration-300"
       >
         Add Blog
       </button>
-
-      {isSusheel && (
+      }
+      {showForm && (
         <div className="mt-6 w-full max-w-lg bg-neutral-900 p-6 rounded-2xl shadow-xl border border-purple-700">
           <h2 className="text-xl font-bold text-purple-400 mb-4">Create New Blog</h2>
           <form onSubmit={handleAddBlog} className="flex flex-col space-y-4">

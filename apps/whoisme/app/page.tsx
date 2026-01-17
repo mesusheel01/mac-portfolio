@@ -1,6 +1,6 @@
-import { BlogSection } from '@/component/BlogSection';
-import { Footer } from '@/component/Footer';
-import { Home } from '@/component/Home';
+import { BlogSection } from '@/components/features/blog/BlogSection';
+import { Footer } from '@/components/layout/Footer';
+import { Home } from '@/components/Home';
 import React from 'react'
 
 const page = () => {

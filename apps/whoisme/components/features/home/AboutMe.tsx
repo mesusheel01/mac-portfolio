@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
-import ElfCanvas from './ElfHuMain'
 
 export const Aboutme = () => {
   const [startSpin, setStartSpin] = useState(true)
@@ -14,15 +13,7 @@ export const Aboutme = () => {
   return (
     <div className='flex flex-col justify-around'>
       {/* under dev */}
-      {/* <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.3, ease: 'easeIn' }}
-        layout
-        className='w-full  h-[200px]  lg:h-[300px] relative'
-      >
-        <ElfCanvas />
-      </motion.div> */}
+
       <div className='m-2 mt-5 flex flex-col gap-2'>
         <h2 className='text-purple-400 font-share-mono text-xl'>
           sushe.el

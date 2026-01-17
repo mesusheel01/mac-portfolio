@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import tech from '../utilities/techStack'
+import tech from '@/lib/techStack'
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { Variants } from 'motion'
@@ -24,17 +24,17 @@ export const Techstack = () => {
   return (
     <div>
       <h1 className='text-purple-400 text-xl font-share-mono'>Tech stack that I work on:</h1>
-    <motion.div
-      className="flex items-center mt-5 justify-center flex-wrap"
-      variants={containerVariants}
-      initial="hidden"
-      animate="show"
-    >
-      {tech.map((tech, id) => (
-        <ContainerTechStack key={id} name={tech.name} icon={tech.icon} />
-      ))}
-    </motion.div>
-    </div> 
+      <motion.div
+        className="flex items-center mt-5 justify-center flex-wrap"
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+      >
+        {tech.map((tech, id) => (
+          <ContainerTechStack key={id} name={tech.name} icon={tech.icon} />
+        ))}
+      </motion.div>
+    </div>
   )
 }
 
@@ -42,16 +42,16 @@ const ContainerTechStack = ({ name, icon }: { name: string, icon: string }) => {
   return (
     <motion.div
       whileHover={{
-        y:-10,
+        y: -10,
       }}
       whileTap={{
-        rotateX:180,
-        rotateY:180,
+        rotateX: 180,
+        rotateY: 180,
       }}
       transition={{
         duration: .3,
       }}
-    
+
       className="flex flex-col items-center w-24"
       variants={itemVariants}
     >
