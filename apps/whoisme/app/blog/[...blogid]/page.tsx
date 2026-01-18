@@ -5,14 +5,18 @@ import { prismaClient } from "@repo/db";
 export default async function Page({
     params,
 }: {
-    params: { blogid: string[] };
+    params: { blogid: string };
 }) {
-    const idx = params.blogid[0];
+
+
+    const { blogid } = await params
+    const idx = blogid[0]
+
 
     const blog = await prismaClient.blog.findUnique({
         where: { id: Number(idx) },
     });
-
+    console.log(blog)
 
     if (!blog) {
         throw new Error("Blog not found");
