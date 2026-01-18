@@ -19,7 +19,7 @@ export default async function Page({
     console.log(blog)
 
     if (!blog) {
-        throw new Error("Blog not found");
+        return <div className="bg-black min-h-screen text-neutral-500 flex items-center justify-center text-xl font-sono">No blogs found!</div>
     }
 
     return (
