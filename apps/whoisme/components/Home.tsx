@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
-import { Techstack } from './features/home/TechStack'
+import { motion } from 'motion/react'
 import { Aboutme } from './features/home/AboutMe'
 import { Work } from './features/home/Work'
-import { motion } from 'motion/react'
+import { Techstack } from './features/home/TechStack'
 
 export const Home = () => {
   return (
