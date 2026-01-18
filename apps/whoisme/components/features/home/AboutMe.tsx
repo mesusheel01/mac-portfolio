@@ -19,7 +19,7 @@ export const Aboutme = () => {
           sushe.el
         </h2>
         <p className='text-neutral-400 font-sono'>
-          is a developer who is passionate about creating web apps and tools for real-world use. He focus on solving problems and building effective solutions. Currently, he is developing <span className='font-semibold text-purple-900'><a href='https://daycraft-ai.vercel.app'>DayCraft.ai</a></span> its an AI day planner.<br />Also touching some <span className='text-purple-900 '>Machine learning</span> looking forward to contributing to the AI-driven future..  </p>
+          is a developer who is passionate about creating web apps and tools for real-world use. He focus on solving problems and building effective solutions. Currently, he is developing <a href='https://daycraft-ai.vercel.app' className='font-semibold text-purple-400 underline hover:text-purple-600 active:text-purple-700 transition-colors'>DayCraft.ai</a> its an AI day planner.<br />Also touching some <span className='text-purple-900 '>Machine learning</span> looking forward to contributing to the AI-driven future..  </p>
       </div>
     </div>
   )

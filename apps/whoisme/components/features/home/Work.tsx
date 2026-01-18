@@ -8,8 +8,8 @@ export const Work = () => {
         <h1 className='text-purple-400 text-xl font-share-mono'>Work till now...</h1>
         <ul className='text-neutral-400 font-sono list-disc pl-5'>
           <li>Click on the project icon in the dock at <a
-            className='text-purple-400 hover:text-purple-600 transition-colors duration-300' href='https://susheelr.vercel.app'>sushe.el</a></li>
-          <li>Checkout my work till now on <a className='text-purple-400 hover:text-purple-600 transition-colors duration-300' target='_blank' href='https://github.com/mesusheel01'>Github.com </a> pr!</li>
+            className='text-purple-400 hover:text-purple-600 active:text-purple-700 transition-colors duration-300' href='https://susheelr.vercel.app'>sushe.el</a></li>
+          <li>Checkout my work till now on <a className='text-purple-400 hover:text-purple-600 active:text-purple-700 transition-colors duration-300' target='_blank' href='https://github.com/mesusheel01'>Github.com </a> pr!</li>
         </ul>
         <picture>
           <source media="(prefers-color-scheme: dark)" srcSet="https://raw.githubusercontent.com/mesusheel01/mesusheel01/output/github-snake-dark.svg" />

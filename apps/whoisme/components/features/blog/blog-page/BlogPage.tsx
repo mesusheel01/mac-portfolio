@@ -1,9 +1,9 @@
 'use client'
 interface BlogType {
-    id: Number;
-    title: String;
-    description: String;
-    imageUrl: String;
+    id: number;
+    title: string;
+    description: string;
+    imageUrl: string | null;
 }
 export default function BlogPage({ blog }: { blog: BlogType }) {
     return <div>
