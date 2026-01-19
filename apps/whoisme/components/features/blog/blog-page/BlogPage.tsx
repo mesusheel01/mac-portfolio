@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from "next/navigation";
+import { Backspace } from 'geist-icons'
 
 interface BlogType {
     id: number;
@@ -13,9 +14,13 @@ export default function BlogPage({ blog }: { blog: BlogType }) {
     const router = useRouter()
     return (
         <div className="min-h-screen bg-[#100f0f] flex flex-col items-center justify-center">
-            <div className="max-w-[700px] m-5 w-full">
+            <div className="max-w-[700px] m-4 flex flex-col gap-6  p-4 w-full">
                 {/* Content Section */}
-
+                <button
+                    onClick={() => router.push("/")}
+                    className="text-neutral-700 hover:text-neutral-500 transition-colors duration-300 text-[2px]">
+                    <Backspace />
+                </button>
                 <div className="rounded-3xl">
                     {/* Title */}
                     <h1 className="text-xl md:text-2xl font-bold text-neutral-300 mb-6 font-share-mono">

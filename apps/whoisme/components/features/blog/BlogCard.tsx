@@ -1,7 +1,8 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { on } from 'events';
+import { useBlogStore } from '@/store/blogs';
 
 type Blog = {
   id: number;
@@ -11,6 +12,8 @@ type Blog = {
 };
 
 export const BlogCard = ({ blog, onClick }: { blog: Blog; onClick: () => void }) => {
+
+
   return (
     <div
       className="relative flex items-center justify-between bg-neutral-900 border-t border-b border-transparent hover:border-neutral-600 transition-colors duration-500 ease-in-out shadow-md p-3 w-full max-w-3xl cursor-pointer group"
