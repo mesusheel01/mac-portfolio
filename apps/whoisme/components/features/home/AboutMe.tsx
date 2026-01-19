@@ -27,7 +27,7 @@ export const Aboutme = () => {
       {/* under dev */}
 
       <div className='m-2 mt-5 flex flex-col gap-2'>
-        <div className='text-[#cecdc3] flex justify-between mr-5 font-share-mono text-xl'>
+        <div className='text-[#cecdc3] flex justify-between font-share-mono text-xl'>
           <h1>Susheel</h1>
           <button onClick={handleCopyClick} className='mb-[2px] hover:text-neutral-500 transition-colors duration-300 text-[10px] font-sans flex items-center justify-center' >
             me.susheelrai@gmail.com &nbsp;
