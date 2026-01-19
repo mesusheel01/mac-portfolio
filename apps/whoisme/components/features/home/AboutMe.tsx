@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { motion } from 'motion/react'
+import Link from 'next/link'
 
 export const Aboutme = () => {
   const [startSpin, setStartSpin] = useState(true)
@@ -15,11 +16,17 @@ export const Aboutme = () => {
       {/* under dev */}
 
       <div className='m-2 mt-5 flex flex-col gap-2'>
-        <h2 className='text-purple-400 font-share-mono text-xl'>
-          sushe.el
-        </h2>
+        <div>
+          <h1 className='text-purple-400 font-share-mono text-xl'>
+            sushe.el
+          </h1>
+          {/* contact section */}
+          <div className='flex'>
+
+          </div>
+        </div>
         <p className='text-neutral-400 font-sono'>
-          is a developer who is passionate about creating web apps and tools for real-world use. He focus on solving problems and building effective solutions. Currently, he is developing <a href='https://daycraft-ai.vercel.app' className='font-semibold text-purple-400 underline hover:text-purple-600 active:text-purple-700 transition-colors'>DayCraft.ai</a> its an AI day planner.<br />Also touching some <span className='text-purple-900 '>Machine learning</span> looking forward to contributing to the AI-driven future..  </p>
+          is a developer who is passionate about building things for real-world use. He focus on solving problems and building effective solutions. Currently, he is developing <Link href='https://daycraft-ai.vercel.app' className='font-semibold text-purple-400 hover:text-purple-600 active:text-purple-700 transition-colors'>DayCraft.ai</Link> its an AI day planner.<br />Also touching some <span className='text-purple-900 '>Machine learning</span> looking forward to contributing to the AI-driven future..  </p>
       </div>
     </div>
   )
