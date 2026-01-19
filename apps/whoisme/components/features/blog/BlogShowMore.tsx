@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { BlogCard } from './BlogCard';
+import { useRouter } from 'next/navigation';
 
 
 type Blog = {
@@ -15,15 +16,14 @@ export default function BlogsShowMore({ blogs }: { blogs: Blog[] }) {
 
   const [showAll, setShowAll] = useState(false);
   const visibleBlogs = showAll ? blogs : blogs.slice(0, 3);
+  const router = useRouter()
 
-  const handleBlogClick = (id: number) => () => {
-    window.open(`/blog/${id}`, '_blank');
-  };
+
 
   return (
     <>
       {visibleBlogs.map((blog) => (
-        <BlogCard onClick={handleBlogClick(blog.id)} key={blog.id} blog={blog} />
+        <BlogCard onClick={() => router.push(`/blog/${blog.id}`)} key={blog.id} blog={blog} />
       ))}
 
       {blogs.length > 3 && (
