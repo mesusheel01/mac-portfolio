@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from "next/navigation";
+
 interface BlogType {
     id: number;
     title: string;
@@ -8,18 +10,20 @@ interface BlogType {
 }
 
 export default function BlogPage({ blog }: { blog: BlogType }) {
+    const router = useRouter()
     return (
-        <div className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center">
-            <div className="max-w-2xl w-full">
+        <div className="min-h-screen bg-[#100f0f] flex flex-col items-center justify-center">
+            <div className="max-w-[700px] m-5 w-full">
                 {/* Content Section */}
-                <div className="bg-neutral-900 rounded-2xl shadow-2xl p-6 md:p-8 m-4">
+                <button onClick={() => router.push("/")} className="text-neutral-400">{"<-"}</button>
+                <div className="rounded-3xl">
                     {/* Title */}
-                    <h1 className="text-xl md:text-2xl font-bold text-purple-400 mb-6 font-share-mono">
+                    <h1 className="text-xl md:text-2xl font-bold text-neutral-300 mb-6 font-share-mono">
                         {blog.title}
                     </h1>
 
                     {/* Description with preserved formatting */}
-                    <div className="text-neutral-400 text-base md:text-md leading-relaxed font-sono">
+                    <div className="text-neutral-500 text-base md:text-md leading-relaxed font-sono">
                         <p className="whitespace-pre-wrap">{blog.description}</p>
                     </div>
                 </div>

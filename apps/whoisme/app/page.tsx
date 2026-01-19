@@ -6,8 +6,8 @@ import { ContactSection } from '@/components/layout/Contact';
 
 const page = () => {
   return (
-    <div className='bg-black flex items-center justify-center'>
-      <div className='bg-neutral-950 p-4 w-[800px] min-h-screen'>
+    <div className='bg-[#100f0f] flex items-center justify-center'>
+      <div className='p-4 w-[700px] min-h-screen'>
         <Home />
         <BlogSection />
         <ContactSection />

@@ -16,11 +16,11 @@ export const Aboutme = () => {
       {/* under dev */}
 
       <div className='m-2 mt-5 flex flex-col gap-2'>
-        <h1 className='text-purple-400 font-share-mono text-xl'>
+        <h1 className='text-[#cecdc3] font-share-mono text-xl'>
           sushe.el
         </h1>
-        <p className='text-neutral-400 font-sono'>
-          is a developer who is passionate about building things for real-world use. He focus on solving problems and building effective solutions. His recent tool is <Link href='https://daycraft-ai.vercel.app' className='font-semibold text-purple-500 hover:text-purple-800 active:text-purple-600 transition-colors'>DayCraft.ai</Link> its an AI day planner. Plan your day with just one prompt, hit the link and try yourself.</p>
+        <p className='text-neutral-500 font-sono'>
+          is a developer who is passionate about building things for real-world use. He focus on solving problems and building effective solutions. His recent creation is <Link href='https://daycraft-ai.vercel.app' className='font-semibold text-neutral-300 hover:text-neutral-500 active:text-purple-600 transition-colors duration-300'>DayCraft.ai</Link> its an AI day planner. Plan your day with just one prompt, hit the link and try yourself.</p>
       </div>
     </div>
   )
