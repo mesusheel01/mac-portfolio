@@ -4,6 +4,7 @@ import { motion } from 'motion/react'
 import { Aboutme } from './features/home/AboutMe'
 import { Work } from './features/home/Work'
 import { Techstack } from './features/home/TechStack'
+import Experience from './features/home/Experience'
 
 export const Home = () => {
   return (
@@ -22,6 +23,7 @@ export const Home = () => {
       }}
     >
       <Aboutme />
+      <Experience />
       <Work />
       <Techstack />
     </motion.div>
