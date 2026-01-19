@@ -15,7 +15,7 @@ export default function BlogPage({ blog }: { blog: BlogType }) {
         <div className="min-h-screen bg-[#100f0f] flex flex-col items-center justify-center">
             <div className="max-w-[700px] m-5 w-full">
                 {/* Content Section */}
-                <button onClick={() => router.push("/")} className="text-neutral-400">{"<-"}</button>
+
                 <div className="rounded-3xl">
                     {/* Title */}
                     <h1 className="text-xl md:text-2xl font-bold text-neutral-300 mb-6 font-share-mono">
