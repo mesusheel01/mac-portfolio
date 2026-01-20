@@ -5,7 +5,7 @@ export const Work = () => {
   return (
     <div>
       <div className='m-2 flex flex-col gap-2'>
-        <h1 className='text-[#cecdc3] text-lg font-share-mono'>Work till now...</h1>
+        <h1 className='text-[#cecdc3] text-xl font-share-mono'>Work till now...</h1>
         <ul className='text-neutral-500 font-sono list-disc pl-5'>
           <li>Click on the project icon in the dock at <a
             className='text-neutral-300 font-semibold hover:text-neutral-500 active:text-neutral-300 transition-colors duration-300' href='https://susheelr.vercel.app'>sushe.el</a></li>
