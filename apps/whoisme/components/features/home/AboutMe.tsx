@@ -27,7 +27,7 @@ export const Aboutme = () => {
       {/* under dev */}
 
       <div className='m-2 mt-5 flex flex-col gap-2'>
-        <div className='text-[#cecdc3] flex justify-between font-share-mono text-xl'>
+        <div className='text-[#cecdc3] flex justify-between font-share-mono text-lg'>
           <h1>Susheel</h1>
           <button onClick={handleCopyClick} className='mb-[2px] hover:text-neutral-500 transition-colors duration-300 text-[10px] font-sans flex items-center justify-center' >
             me.susheelrai@gmail.com &nbsp;
@@ -48,7 +48,7 @@ export const Aboutme = () => {
             </AnimatePresence>
           </button>
         </div>
-        <p className='text-neutral-500 font-sono'>
+        <p className='text-neutral-500 text-sm md:text-md font-sono'>
           is a developer who is passionate about building things for real-world use. He focus on solving problems and building effective solutions. His recent creation is <Link href='https://daycraft-ai.vercel.app' className='font-semibold text-neutral-300 hover:text-neutral-500 active:text-purple-600 transition-colors duration-300'>DayCraft.ai</Link> its an AI day planner. Plan your day with just one prompt, hit the link and try yourself.</p>
       </div>
     </div>

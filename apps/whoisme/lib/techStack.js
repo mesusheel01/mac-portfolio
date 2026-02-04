@@ -1,4 +1,4 @@
-const tech = [
+cnst tech = [
     { name: 'HTML', icon: '/tech/html.png' },
     { name: 'CSS', icon: '/tech/css.png' },
     { name: 'TS', icon: '/tech/ts.png' },
