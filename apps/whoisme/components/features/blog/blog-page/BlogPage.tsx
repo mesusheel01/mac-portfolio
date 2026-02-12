@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { Backspace } from 'geist-icons'
+import { motion } from 'motion/react'
 
 interface BlogType {
     id: number;
@@ -14,7 +15,11 @@ export default function BlogPage({ blog }: { blog: BlogType }) {
     const router = useRouter()
     return (
         <div className="min-h-screen bg-bg-primary flex flex-col items-center justify-center">
-            <div className="max-w-[700px] m-4 flex flex-col gap-6  p-4 w-full">
+            <motion.div
+                layoutId={`blog-${blog.id}`}
+                transition={{ duration: 0.4, ease: [0.23, 1, 0.5, 1] }}
+                className="max-w-[700px] m-4 flex flex-col gap-6 p-6 w-full bg-bg-primary/90 backdrop-blur-sm rounded-3xl"
+            >
                 {/* Content Section */}
                 <button
                     onClick={() => router.push("/")}
@@ -32,7 +37,7 @@ export default function BlogPage({ blog }: { blog: BlogType }) {
                         <p className="whitespace-pre-wrap">{blog.description}</p>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }

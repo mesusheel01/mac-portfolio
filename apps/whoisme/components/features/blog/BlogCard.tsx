@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect } from 'react';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { on } from 'events';
 import { useBlogStore } from '@/store/blogs';
 
@@ -15,7 +15,9 @@ export const BlogCard = ({ blog, onClick }: { blog: Blog; onClick: () => void })
 
 
   return (
-    <div
+    <motion.div
+      layoutId={`blog-${blog.id}`}
+      transition={{ duration: 0.4, ease: [0.23, 1, 0.5, 1] }}
       className="relative flex items-center justify-between bg-bg-primary/50 border-t border-b border-border-primary/30 hover:border-border-primary transition-colors duration-500 ease-in-out shadow-md p-3 w-full max-w-3xl cursor-pointer group"
     >
       {/* Text Content */}
@@ -32,6 +34,6 @@ export const BlogCard = ({ blog, onClick }: { blog: Blog; onClick: () => void })
           Read More
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
