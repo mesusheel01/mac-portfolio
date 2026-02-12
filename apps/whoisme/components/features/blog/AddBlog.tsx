@@ -43,7 +43,7 @@ export const AddBlog = () => {
       </button>
       }
       {showForm && (
-        <div className="mt-6 w-full max-w-lg bg-neutral-900 p-6 rounded-2xl shadow-xl border border-purple-700">
+        <div className="mt-6 w-full max-w-lg bg-bg-primary p-6 rounded-2xl shadow-xl border border-purple-700">
           <h2 className="text-xl font-bold text-purple-400 mb-4">Create New Blog</h2>
           <form onSubmit={handleAddBlog} className="flex flex-col space-y-4">
             <input
@@ -51,14 +51,14 @@ export const AddBlog = () => {
               onChange={(e) => setForm({ ...form, title: e.target.value })}
               type="text"
               placeholder="Title"
-              className="px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-lg focus:outline-none focus:border-purple-500 text-white"
+              className="px-4 py-2 bg-bg-primary/50 border border-border-primary rounded-lg focus:outline-none focus:border-purple-500 text-text-primary placeholder:text-text-secondary"
             />
 
             <textarea
               value={form.content}
               onChange={(e) => setForm({ ...form, content: e.target.value })}
               placeholder="Content"
-              className="px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-lg focus:outline-none focus:border-purple-500 text-white h-32 resize-none"
+              className="px-4 py-2 bg-bg-primary/50 border border-border-primary rounded-lg focus:outline-none focus:border-purple-500 text-text-primary placeholder:text-text-secondary h-32 resize-none"
             />
 
             <input
@@ -66,7 +66,7 @@ export const AddBlog = () => {
               onChange={(e) => setForm({ ...form, imageUrl: e.target.value })}
               type="text"
               placeholder="Image URL(optional)"
-              className="px-4 py-2 bg-neutral-800 border border-neutral-700 rounded-lg focus:outline-none focus:border-purple-500 text-white"
+              className="px-4 py-2 bg-bg-primary/50 border border-border-primary rounded-lg focus:outline-none focus:border-purple-500 text-text-primary placeholder:text-text-secondary"
             />
 
             <button

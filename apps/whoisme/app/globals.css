@@ -1,23 +1,59 @@
 @import "tailwindcss";
 
+@variant dark (&:is(.dark, .dark *));
+
+@theme {
+  --color-bg-primary: var(--bg-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-link: var(--text-link);
+  --color-border-primary: var(--border-primary);
+}
+
 :root {
-    --font-inter: 'Inter', sans-serif;
-    --font-roboto-mono: 'Roboto Mono', monospace;
-    --font-rubik-iso: 'Rubik Iso', cursive;
-    --font-sono: 'Sono', monospace;
-    --font-share-tech-mono: "Share Tech Mono", monospace;
-  }
+  --bg-primary: #cecdc3;
+  --text-primary: #100f0f;
+  --text-secondary: #737373;
+  --text-link: #292929;
+  --border-primary: #4d4d4d;
+}
 
-  .font-share-mono{
-    font-family: var(--font-share-tech-mono)
-  }
-  .font-roboto-mono {
-    font-family: var(--font-roboto-mono);
-  }
+.dark {
+  --bg-primary: #100f0f;
+  --text-primary: #cecdc3;
+  --text-secondary: #a3a3a3;
+  --text-link: #272727;
+  --border-primary: #262626;
+}
 
-  .font-rubik-iso {
-    font-family: var(--font-rubik-iso);
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-  .font-sono{
-    font-family: var(--font-sono);
-  }
+}
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-roboto-mono: 'Roboto Mono', monospace;
+  --font-rubik-iso: 'Rubik Iso', cursive;
+  --font-sono: 'Sono', monospace;
+  --font-share-tech-mono: "Share Tech Mono", monospace;
+}
+
+.font-share-mono {
+  font-family: var(--font-share-tech-mono)
+}
+
+.font-roboto-mono {
+  font-family: var(--font-roboto-mono);
+}
+
+.font-rubik-iso {
+  font-family: var(--font-rubik-iso);
+}
+
+.font-sono {
+  font-family: var(--font-sono);
+}

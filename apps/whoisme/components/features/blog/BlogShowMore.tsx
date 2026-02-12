@@ -33,9 +33,9 @@ export default function BlogsShowMore({ blogs }: { blogs: Blog[] }) {
       {blogs.length > 3 && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition"
+          className="mt-4 px-6 py-2 font-sono  text-text-secondary hover:text-text-primary  transition-colors duration-300"
         >
-          {showAll ? 'Show Less' : 'Show More'}
+          {showAll ? 'Show Less...' : 'Show More...'}
         </button>
       )}
     </>

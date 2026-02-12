@@ -7,7 +7,7 @@ export default function Blogs() {
   return (
     <div>
       <div className="flex justify-between items-center">
-        <h1 className="text-[#cecdc3] font-share-mono text-lg">Blogs...</h1>
+        <h1 className="text-text-primary font-share-mono text-lg">Blogs...</h1>
       </div>
       <Suspense fallback={<BlogsSkeleton />}>
         {/* Async child component */}

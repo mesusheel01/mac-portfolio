@@ -25,7 +25,7 @@ export async function BlogsList() {
   }
 
   if (blogs.length === 0) {
-    return <p className="text-gray-400">No blogs found!</p>;
+    return <p className="text-text-secondary">No blogs found!</p>;
   }
 
   return (

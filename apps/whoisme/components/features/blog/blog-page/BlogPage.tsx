@@ -13,22 +13,22 @@ interface BlogType {
 export default function BlogPage({ blog }: { blog: BlogType }) {
     const router = useRouter()
     return (
-        <div className="min-h-screen bg-[#100f0f] flex flex-col items-center justify-center">
+        <div className="min-h-screen bg-bg-primary flex flex-col items-center justify-center">
             <div className="max-w-[700px] m-4 flex flex-col gap-6  p-4 w-full">
                 {/* Content Section */}
                 <button
                     onClick={() => router.push("/")}
-                    className="text-neutral-700 hover:text-neutral-500 transition-colors duration-300 text-[2px]">
+                    className="text-text-secondary hover:text-text-primary transition-colors duration-300 text-[2px]">
                     <Backspace />
                 </button>
                 <div className="rounded-3xl">
                     {/* Title */}
-                    <h1 className="text-xl md:text-2xl font-bold text-neutral-300 mb-6 font-share-mono">
+                    <h1 className="text-xl md:text-2xl font-bold text-text-primary mb-6 font-share-mono">
                         {blog.title}
                     </h1>
 
                     {/* Description with preserved formatting */}
-                    <div className="text-neutral-500 text-base md:text-md leading-relaxed font-sono">
+                    <div className="text-text-secondary text-base md:text-md leading-relaxed font-sono">
                         <p className="whitespace-pre-wrap">{blog.description}</p>
                     </div>
                 </div>

@@ -3,10 +3,15 @@ import React, { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import Link from 'next/link'
 import { CheckCircle, Copy } from 'geist-icons';
+import { useTheme } from '@/theme/ThemeProvider';
+import { FaCloudMoon, FaCloudSun } from 'react-icons/fa';
 
 export const Aboutme = () => {
   const [startSpin, setStartSpin] = useState(true)
   const [isCopied, setIsCopied] = useState(false)
+  const { theme, toggleTheme } = useTheme()
+
+
   const handleCopyClick = () => {
     console.log(process.env.NEXT_PUBLIC_USER_EMAIL)
     navigator.clipboard.writeText(process.env.NEXT_PUBLIC_USER_EMAIL as string || "test@example.com")
@@ -27,8 +32,27 @@ export const Aboutme = () => {
       {/* under dev */}
 
       <div className='m-2 mt-5 flex flex-col gap-2'>
-        <div className='text-[#cecdc3] flex justify-between font-share-mono text-lg'>
-          <h1>Susheel</h1>
+        <div className='text-text-primary flex justify-between font-share-mono text-lg'>
+          <div className='flex gap-2'><span>Susheel</span> <button
+            onClick={toggleTheme}
+            className="flex items-center justify-center p-1 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.div
+                key={theme}
+                initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                exit={{ opacity: 0, scale: 0.8, rotate: 90 }}
+                transition={{ duration: 0.25 }}
+              >
+                {theme === 'light' ? (
+                  <FaCloudSun className="text-chart-4" size={20} />
+                ) : (
+                  <FaCloudMoon size={20} className="text-chart-4" />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </button></div>
           <button onClick={handleCopyClick} className='mb-[2px] hover:text-neutral-500 transition-colors duration-300 text-[10px] font-sans flex items-center justify-center' >
             me.susheelrai@gmail.com &nbsp;
             <AnimatePresence mode="wait" initial={false}>
@@ -48,8 +72,8 @@ export const Aboutme = () => {
             </AnimatePresence>
           </button>
         </div>
-        <p className='text-neutral-500 text-sm md:text-md font-sono'>
-          is a developer who is passionate about building things for real-world use. He focus on solving problems and building effective solutions. His recent creation is <Link href='https://daycraft-ai.vercel.app' className='font-semibold text-neutral-300 hover:text-neutral-500 active:text-purple-600 transition-colors duration-300'>DayCraft.ai</Link> its an AI day planner. Plan your day with just one prompt, hit the link and try yourself.</p>
+        <p className='text-text-secondary text-sm md:text-md font-sono'>
+          is a developer who is passionate about building things for real-world use. He focus on solving problems and building effective solutions. His recent creation is <Link href='https://daycraft-ai.vercel.app' className='font-semibold text-text-link hover:text-text-secondary transition-colors duration-300'>DayCraft.ai</Link> its an AI day planner. Plan your day with just one prompt, hit the link and try yourself.</p>
       </div>
     </div>
   )

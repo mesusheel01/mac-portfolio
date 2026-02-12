@@ -13,7 +13,7 @@ export default function Page({
     // Use .find() to get a single blog object, not .map()
 
     if (!blogItem) {
-        return <div className="bg-black min-h-screen text-neutral-500 flex items-center justify-center text-xl font-sono">No blogs found!</div>
+        return <div className="bg-bg-primary min-h-screen text-text-secondary flex items-center justify-center text-xl font-sono">No blogs found!</div>
     }
 
     return (

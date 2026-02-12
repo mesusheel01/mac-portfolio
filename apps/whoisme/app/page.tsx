@@ -6,7 +6,7 @@ import { ContactSection } from '@/components/layout/Contact';
 
 const page = () => {
   return (
-    <div className='bg-[#100f0f] flex items-center justify-center'>
+    <div className='bg-bg-primary/95 dark:bg-bg-primary flex items-center justify-center'>
       <div className='p-4 w-[700px] min-h-screen'>
         <Home />
         <BlogSection />

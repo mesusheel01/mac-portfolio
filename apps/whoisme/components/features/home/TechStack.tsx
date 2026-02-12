@@ -23,7 +23,7 @@ const itemVariants: Variants = {
 export const Techstack = () => {
   return (
     <div>
-      <h1 className='text-[#cecdc3] text-lg font-share-mono'>Tech stack:</h1>
+      <h1 className='text-[#100f0f] dark:text-[#cecdc3] text-lg font-share-mono'>Tech stack:</h1>
       <motion.div
         className="flex items-center mt-5 justify-center flex-wrap"
         variants={containerVariants}
